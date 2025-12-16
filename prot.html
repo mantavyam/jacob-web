@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MERISHAKTI
+    </title>
+    <meta name="description" content="Free bootstrap template Atlas">
+    <link rel="icon" href="assets/img/favicon.png" sizes="32x32" type="image/png">
+    <!-- custom.css -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- bootstrap.min.css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- font-awesome -->
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    
+    <!-- AOS -->
+    <link rel="stylesheet" href="css/aos.css">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['geochart','corechart'],
+      'mapsApiKey': 'AIzaSyAyHsTkkSRCBZjkZ7R2ATvuKdFK3MtoFro'
+  
+    });
+    google.charts.setOnLoadCallback(function() {
+     drawRegionsMap();
+  });
+      
+      function drawRegionsMap() {
+        var data2 = google.visualization.arrayToDataTable([
+        ['State', 'Complaints registered'],
+                ['Andhra Pradesh', 179],
+                ['Arunachal Pradesh', 7],
+                ['Assam', 85],
+                ['Bihar', 1242],
+                ['Chhattisgarh', 177],
+                ['Goa', 13],
+                ['Gujarat', 232],
+                ['Haryana', 1402],
+                ['Himachal Pradesh', 113],
+                ['Jharkhand', 406],
+                ['Karnataka', 511],
+                ['Kerala', 177],
+                ['Madhya Pradesh', 985],
+                ['Maharashtra', 1431],
+                ['Manipur', 7],
+                ['Meghalaya', 9],
+                ['Mizoram', 2],
+                ['Nagaland', 1],
+                ['Odisha', 156],
+                ['Punjab', 468],
+                ['Rajasthan', 1012],
+                ['Sikkim', 3],
+                ['Tamil Nadu', 511],
+                ['Telangana', 222],
+                ['Tripura', 9],
+                ['Uttar Pradesh', 13058],
+                ['Uttarakhand', 431],
+                ['West Bengal', 507],
+                ['Union Territory', 50]
+        ]);
+
+        var options = {
+          region: 'IN', // ISO 3166-1 alpha-2 country code
+                resolution: 'provinces',
+                domain:'IN',
+                colorAxis: {
+                    colors: ['cyan', 'blue', 'BLACK']
+                }
+
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+        chart.draw(data2, options);
+      };
+
+       
+      
+    </script>
+</head>
+
+<body>
+    <!-- banner -->
+    <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(assets/img/women.jpg);">
+        <div class="container text-center text-md-left">
+            <header>
+                <div class="row justify-content-between">
+                    <div class="col-2">
+                        <img src="assets/img/logo.png" alt="logo">
+                    </div>
+                    <div class="col-6 align-self-center text-right">
+                        <a href="#" class="text-white lead"> </a>
+                    </div>
+                </div>
+            </header>
+            <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
+            	Prevention of Violence
+                <br> against Women
+            </h1>
+            <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
+                The Constitution of India not only grants equality to women but also
+empowers the State to adopt measures of positive discrimination in favour
+of women for neutralizing the cumulative socio-economic, educational and
+political disadvantages faced by them
+
+
+            </p>
+            <a href="index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
+        </div>
+    </div>
+    
+    <!-- feature (skew background) -->
+    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
+        <div class="container my-5">
+            <div class="row justify-content-between text-center text-md-left">
+                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
+                    <h2 class="font-weight-bold">Instant Compliant Registeration 
+                        <br>under National Comission for Wemon </h2>
+                    <p class="my-4">November 25 is celebrated every year
+                        as the International Day for the
+                        Elimination of Violence against
+                        Women. Violence against women and
+                        girls (VAWG) 1
+                        is one of the most
+                        widespread, persistent and
+                        devastating human rights violations in
+                        our world today and remains largely
+                        unreported due to the impunity, silence,
+                        stigma and shame surrounding it
+                        <br>For any issue related to Violence against Women
+                        Please Call on 24x7 Helpline : 7827-170-170</p>
+                        <a href="register.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Compliant Registeration</a>
+                
+                        
+    
+                
+                
+                    </div>
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
+                    <img src="assets/img/ncw.png" alt="Take a look inside" class="mx-auto d-block">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 class="font-weight-bold">Complaints of violence against women registered in Indian states </h2>
+    <div  class="jumbotron jumbotron-fluid feature"  id="regions_div" style="width: 100%; height: 900px;">
+    
+    </div>
+    <!-- feature (green background) -->
+    <div class="jumbotron jumbotron-fluid feature" id="feature-last">
+        <div class="container">
+            <div class="row justify-content-between text-center text-md-left">
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 flex-md-last">
+                    <h2 class="font-weight-bold">Statutary Laws againstgender based violence </h2>
+                    <p class="my-4">
+                        The Ministry of Women and Child Development has been administering various
+                        <br> special laws relating to women such as ‘The Protection of Women from
+                        <br> Domestic Violence Act, 2005’, ‘The Dowry Prohibition Act, 1961’, 
+                        <br>‘The Indecent Representation of Women (Prohibition) Act, 1986’, 
+                        <br>‘The Sexual Harassment of Women at Workplace (Prevention, Prohibition
+                        <br> and Redressal) Act, 2013’
+                    </p>
+                    
+                </div>
+                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center flex-md-first">
+                    <img src="assets/img/ipc.jpg" alt="Safe and reliable" class="mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- feature (skew background) -->
+<div class="jumbotron jumbotron-fluid feature" id="feature-first">
+    <div class="container my-5">
+        <div class="row justify-content-between text-center text-md-left">
+            <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
+                <h2 class="font-weight-bold">Legislative measures – Legal rights of women </h2>
+                <p class="my-4">(1)                 The crimes identified under the Indian Penal Code (IPC)
+
+                    (i)                   Rape (sec.376 IPC)
+                    
+                    (ii)                 Kidnapping & abduction for different purposes (sec.363 – 373 IPC)
+                    
+                    (iii)                Homicide for Dowry, Dowry Deaths or their attempts (sec.302/304-B of IPC)
+                    
+                    (iv)                Torture, both mental and physical (sec.498-A of IPC)
+                    
+                    (v)                  Molestation (sec.354 of IPC)
+                    
+                    (vi)                Sexual harassment (sec.509 of IPC) (referred to in the past as Eve-teasing)
+                    
+                    (vii)               Importation of girls (upto 21 years of age) (sec.366-B of IPC)
+                    
+                    (2)                 The crimes identified under the Special laws, such as :
+                    
+                    (i)                   Commission of Sati (Prevention) Act, 1987
+                    
+                    (ii)                 Dowry Prohibition Act, 1961
+                    
+                    (iii)                Indecent Representation of Women (Prohibition) Act, 1986
+                    
+                    (iv)                Immoral Traffic (Prevention) Act, 1956
+                    
+                    (v)                  Protection of Women from Domestic Violence Act, 2005</p>
+                    <a href="index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
+                <img src="assets/img/dv.jpeg" alt="Take a look inside" class="mx-auto d-block">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- price table -->
+    
+  
+    <!-- client -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                    <img src="assets/img/gov.png" class="mx-auto d-block">
+                </div>
+                <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                    <img src="assets/img/ncw.png" class="mx-auto d-block">
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    <!-- contact -->
+    <div class="jumbotron jumbotron-fluid" id="contact" style="background-image: url(assets/img/contact-bk.jpg);">
+        <div class="container my-5">
+            <div class="row justify-content-between">
+                <div class="col-md-6 text-white">
+                    <h2 class="font-weight-bold">Contact Us</h2>
+                   
+                    <ul class="list-unstyled">
+                        <li>Email : S.Kumar@iiitb.ac.in</li>
+                        <li>Phone : 9720391267</li>
+                        <li>Address :IIITB, Electronic City, Bengaluru, India</li>
+                    </ul>
+                
+            </div>
+        </div>
+    </div>
+
+	<!-- copyright -->
+	<div class="jumbotron jumbotron-fluid" id="copyright">
+        <div class="container">
+            <div class="row justify-content-between">
+            	
+                <div class="col-md-6 align-self-center text-center text-md-right my-2" id="social-media">
+                    <a href="#" class="d-inline-block text-center ml-2">
+                    	<i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="d-inline-block text-center ml-2">
+                    	<i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="d-inline-block text-center ml-2">
+                    	<i class="fa fa-medium" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="d-inline-block text-center ml-2">
+                    	<i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AOS -->
+    <script src="js/aos.js"></script>
+    <script>
+      AOS.init({
+      });
+    </script>
+</body>
+
+</html>
