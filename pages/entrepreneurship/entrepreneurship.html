@@ -1,248 +1,700 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>MERISHAKTI
-    </title>
-    <meta name="description" content="Free bootstrap template Atlas">
-    <link rel="icon" href="../../assets/images/favicon.png" sizes="32x32" type="image/png">
-    <!-- custom.css -->
-    <link rel="stylesheet" href="../../assets/css/custom.css">
-    <!-- bootstrap.min.css -->
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-	<!-- font-awesome -->
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="Women entrepreneurship schemes - Mudra Loan, Stree Shakti Yojana, Udyogini Scheme for business development">
+    <title>Women Entrepreneurship | Women Empowerment Portal</title>
     
-    <!-- AOS -->
+    <link rel="icon" href="../../assets/images/favicon.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../assets/css/aos.css">
-
-    //
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <style>
+        :root {
+            --primary-color: oklch(0.205 0 0);
+            --secondary-color: oklch(0.269 0 0);
+            --accent-color: oklch(0.577 0.245 27.325);
+            --dark-color: oklch(0.145 0 0);
+            --light-color: oklch(0.985 0 0);
+            --success-color: oklch(0.646 0.222 41.116);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar-modern {
+            background: var(--dark-color);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-modern.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar-brand img { height: 40px; width: auto; }
+        
+        .navbar-toggler { border: none; padding: 0.25rem 0.75rem; }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after { width: 80%; }
+        
+        .btn-nav {
+            background: white;
+            color: var(--primary-color) !important;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: var(--accent-color);
+            color: white !important;
+            transform: scale(1.05);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.9) 0%, rgba(37, 117, 252, 0.9) 100%),
+                        url('../../assets/images/entrepreneur.png') center/cover no-repeat;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .btn-hero {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hero:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, #f8f9fa, white);
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Chart Section */
+        .chart-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+        
+        /* Scheme Cards */
+        .scheme-section {
+            padding: 5rem 0;
+        }
+        
+        .scheme-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .scheme-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .scheme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .scheme-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .scheme-content {
+            padding: 2.5rem;
+        }
+        
+        .scheme-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .scheme-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        .scheme-text {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .scheme-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .scheme-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: start;
+        }
+        
+        .scheme-list li:before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: 700;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .btn-scheme {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-scheme:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-    google.charts.load('current', {packages: ['corechart', 'bar']});
-      google.charts.setOnLoadCallback(drawBasic);
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-      function drawBasic() {
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Enterprise", "Total MSME", { role: "style" }],
+          ["Micro", 11262722, "linear-gradient(135deg, #6a11cb, #2575fc)"],
+          ["Small", 277089, "linear-gradient(135deg, #2575fc, #6a11cb)"],
+          ["Medium", 15850, "linear-gradient(135deg, #ff6b6b, #ee5a6f)"]
+        ]);
 
-      var data = google.visualization.arrayToDataTable([
-        ['States of India', 'Proprietary distribution',],
-        ['West Bengal, WB', 2901324],
-        ['Tamil Naidu, TN', 1285263],
-        ['Telangana, TLN', 972424],
-        ['Karnataka, KN', 936905],
-        ['Uttar Pradesh, UP', 862796],
-        ['Andhra Pradesh, AP', 838033],
-        ['Gujarat, GJ', 826640],
-        ['Maharashtra, MH', 801197],
-        ['Kerala, KRL', 495962],
-        ['Rajasthan, RJ', 380007],
-        ['Madhya Pradesh, MP', 370427],
-        ['Jharkhand, JKH', 310388],
-        ['Odisha, OD', 295460],
-        ['Punjab, PJ', 224185],
-        ['Bihar, BH', 168347],
-        ['Haryana, HN', 98309],
-        ['Delhi, DL', 86742],
-        ['Manipur, MN', 86604],
-        ['Jammu & Kashmir, JK', 74785],
-        ['Chhattisgarh, CG', 71201]
-      ]);
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1, {
+          calc: "stringify",
+          sourceColumn: 1,
+          type: "string",
+          role: "annotation"
+        }, 2]);
 
-      var options = {
-       
-        hAxis: {
-          title: 'e Distribution of Proprietary MSMEs by Women',
-          minValue: 0
-        },
-        vAxis: {
-          title: 'City'
-        }
-      };
-
-      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-      chart.draw(data, options);
-    }
-     
+        var options = {
+          title: "Women-Owned MSME Distribution in India",
+          backgroundColor: 'transparent',
+          chartArea: {width: '85%', height: '70%'},
+          bar: {groupWidth: "75%"},
+          legend: { position: "none" },
+          hAxis: { title: "Number of Enterprises" },
+          vAxis: { title: "Enterprise Type" }
+        };
+        
+        var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+        chart.draw(view, options);
+      }
     </script>
 </head>
-
 <body>
-    <!-- banner -->
-    <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(../../assets/images/entre.jpg);">
-        <div class="container text-center text-md-left">
-            <header>
-                <div class="row justify-content-between">
-                    <div class="col-2">
-                        <img src="../../assets/images/logo.png" alt="logo">
-                    </div>
-                    <div class="col-6 align-self-center text-right">
-                        <a href="#" class="text-white lead"> </a>
-                    </div>
-                </div>
-            </header>
-            <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
-            	Schemes for Female Entrepreneurs
-            </h1>
-            <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
-                The increasing presence of women as entrepreneurs has led to significant
-business and economic growth in the country. Government of India is
-providing various incentives to promote female entrepreneurs for a sustainable tommorow.
-            </p>
-            <a href="../home/index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
-        </div>
-    </div>
- 
-    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
-        <div class="container my-5">
-            <div class="row justify-content-between text-center text-md-left">
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                    <h2 class="font-weight-bold">Distribution of Proprietary MSMEs by Women among top 20 Indian states</h2>
-                    <div id="chart_div" style="width: 100%; height: 500px;"></div>
-                    
-                   
-                </div>
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
-                    
-                </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-modern navbar-expand-lg">
+        <div class="container align-items-lg-center">
+            <a class="navbar-brand" href="../home/index.html">
+                <img src="../../assets/images/logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span>Women Empowerment Portal</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" style="background: white; padding: 0.5rem;">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../home/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../education/education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="entrepreneurship.html">Entrepreneurship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../protection/protection.html">Protection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard/dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav" href="../registration/complaint-form.html">File Complaint</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-    
-    <!-- feature (skew background) -->
-    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
-        <div class="container my-5">
-            <div class="row justify-content-between text-center text-md-left">
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                    <h2 class="font-weight-bold">Mudra Loan for Women</h2>
-                    <p class="my-4">Beti Bachao Beti Padhao is a central government scheme that helps girls
-                        <br>Mudra Loan for Women was launched by the government as a woman loan scheme to 
-                        <br>offer financial support for enthusiastic women entrepreneurs. They seek a
-                        <br>  business plan like starting a beauty parlour, tuition centre, stitching shop,
-                        <br> etc. This scheme does not require any collateral to grant the loan. However, 
-                        <br>there are categories under which a Mudra loan application can be applied. They are as follows:
+    </nav>
 
-                        <br>Shishu Loan: The maximum loan amount granted to businesses in the initial stage is Rs. 50,000. 
-                        
-                        <br>Kishor Loan: This loan is for businesses that are already established but wish to improve services. The amount of loan granted varies from Rs. 50,000 to Rs. 5 Lakhs. 
-                        
-                        <br>Tarun Loan: This loan is for well-established businesses planning to expand their reach and is short on capital; they can avail as much as Rs. 10 Lakhs for the purpose.
-                        </p>
-                    
-                </div>
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
-                    <img src="../../assets/images/mudra.jpg" alt="Take a look inside" class="mx-auto d-block">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- feature (green background) -->
-    <div class="jumbotron jumbotron-fluid feature" id="feature-last">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <div class="row justify-content-between text-center text-md-left">
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 flex-md-last">
-                    <h2 class="font-weight-bold">Stree Shakti Yojana</h2>
-                    <p class="my-4">
-                        The Stree Shakti package is a unique government scheme for women that supports
-                        <br> entrepreneurship by providing certain concessions. This woman loan scheme 
-                        <br>is eligible for women who have the majority of ownership in the business. 
-                        <br>Another requirement is that these women entrepreneurs be enrolled under 
-                        <br>the Entrepreneurship Development Programme (EDP) organised by their
-                        <br> respective state agencies. This Stree Shakti scheme allows women to avail
-                        <br> of an interest concession of 0.05% on loans more than Rs. 2 lakh.
-                    </p>
-                    
-                </div>
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center flex-md-first">
-                    <img src="../../assets/images/stree.jpg" alt="Safe and reliable" class="mx-auto d-block">
-                </div>
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Women Entrepreneurship<br>Development Schemes</h1>
+                <p>Business opportunities can help in getting money and creating employment, thus ensuring overall development. Women are the building blocks of the economy, and their empowerment is key to the social and economic development of society.</p>
+                <a href="../home/index.html" class="btn btn-hero">
+                    <i class="fa fa-home"></i> Back to Home
+                </a>
             </div>
         </div>
-    </div>
-<!-- feature (skew background) -->
-<div class="jumbotron jumbotron-fluid feature" id="feature-first">
-    <div class="container my-5">
-        <div class="row justify-content-between text-center text-md-left">
-            <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                <h2 class="font-weight-bold">Udyogini Scheme</h2>
-                <p class="my-4">This program is ideal for ladies who want to establish their own business 
-                    <br>but don’t know where to begin. The GOI intends this scheme for women who belong
-                    <br> to a family that earns less than INR 1.5 lakhs per year, with no discrimination 
-                    <br>against widowed, poor, or disabled women. The scheme provides up to Rs 3 lakh in 
-                    <br>cash, with a low-interest rate. The goal is to assist women in becoming 
-                    <br>self-sufficient by creating their own enterprises, particularly in economically 
-                    <br>underdeveloped countries. Through loan subsidies, women can embark on a path of business.</p>
-                    <a href="../home/index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
-            </div>
-            <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
-                <img src="../../assets/images/udy.png" alt="Take a look inside" class="mx-auto d-block">
-            </div>
-        </div>
-    </div>
-</div>
+    </section>
 
-    <!-- price table -->
-    
-  
-    <!-- client -->
-    <div class="jumbotron jumbotron-fluid">
+    <!-- Stats Section -->
+    <section class="stats-section">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                    <img src="../../assets/images/gov.png" class="mx-auto d-block">
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-card">
+                        <div class="stat-number">11.5M</div>
+                        <div class="stat-label">Women-Owned MSMEs</div>
+                    </div>
                 </div>
-
-                
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="stat-number">20%</div>
+                        <div class="stat-label">Of Total MSMEs</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Micro Enterprises</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Government Schemes</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- contact -->
-    <div class="jumbotron jumbotron-fluid" id="contact" style="background-image: url(../../assets/images/contact-bk.jpg);">
-        <div class="container my-5">
-            <div class="row justify-content-between">
-                <div class="col-md-6 text-white">
-                    <h2 class="font-weight-bold">Contact Us</h2>
-                   
-                    <ul class="list-unstyled">
-                        <li>Email : S.Kumar@iiitb.ac.in</li>
-                        <li>Phone : 9720391267</li>
-                        <li>Address :IIITB, Electronic City, Bengaluru, India</li>
-                    </ul>
-                
-            </div>
-        </div>
-    </div>
+    </section>
 
-	<!-- copyright -->
-	<div class="jumbotron jumbotron-fluid" id="copyright">
+    <!-- Chart Section -->
+    <section class="chart-section">
         <div class="container">
-            <div class="row justify-content-between">
-            	
-                <div class="col-md-6 align-self-center text-center text-md-right my-2" id="social-media">
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-medium" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
+            <h2 class="section-title" data-aos="fade-up">MSME Distribution Analytics</h2>
+            <p class="section-subtitle" data-aos="fade-up">Understanding women-owned enterprise landscape in India</p>
+            <div class="chart-container" data-aos="fade-up">
+                <div id="barchart_values" style="width: 100%; height: 500px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mudra Loan Scheme -->
+    <section class="scheme-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="scheme-card">
+                        <div class="scheme-content text-center">
+                            <div class="scheme-icon">
+                                <i class="fa fa-money"></i>
+                            </div>
+                            <span class="scheme-badge">Loan Facility</span>
+                            <h3 class="scheme-title">Mudra Loan</h3>
+                            <p class="scheme-text">MUDRA stands for Micro Units Development & Refinance Agency Ltd. This loan is applicable to all self-employed and small business owners.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="scheme-card">
+                        <div class="scheme-content">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1.5rem; font-weight: 700;">Loan Categories</h4>
+                            <ul class="scheme-list">
+                                <li><strong>Shishu:</strong> Covers loans up to ₹50,000 for startups and early-stage businesses</li>
+                                <li><strong>Kishore:</strong> Covers loans above ₹50,000 and up to ₹5 lakh for established businesses ready to scale</li>
+                                <li><strong>Tarun:</strong> Covers loans above ₹5 lakh and up to ₹10 lakh for well-established enterprises</li>
+                                <li>Facilitates startups and enterprises to establish and expand their business</li>
+                                <li>No collateral required for loans under this scheme</li>
+                                <li>Available at all commercial banks, RRBs, small finance banks, and MFIs</li>
+                            </ul>
+                            <button class="btn btn-scheme mt-3">
+                                <i class="fa fa-external-link"></i> Apply for Mudra Loan
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- AOS -->
+    </section>
+
+    <!-- Stree Shakti Package -->
+    <section class="scheme-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-4 order-lg-1" data-aos="fade-up" data-aos-delay="0">
+                    <div class="scheme-card">
+                        <div class="scheme-content">
+                            <span class="scheme-badge">SBI Scheme</span>
+                            <h3 class="scheme-title">Stree Shakti Package</h3>
+                            <p class="scheme-text">
+                                Launched by State Bank of India (SBI) to promote entrepreneurship among women. This package provides financial assistance to women business owners with favorable terms.
+                            </p>
+                            <ul class="scheme-list">
+                                <li>Specifically designed for women entrepreneurs</li>
+                                <li>Loan facility up to ₹2 crores under retail</li>
+                                <li>0.5% concession in interest rate for women borrowers</li>
+                                <li>Additional 0.25% rate concession if CGTMSE/ECGC guarantee is availed</li>
+                                <li>No processing fee required</li>
+                                <li>Available for new and existing enterprises</li>
+                                <li>Can be used for working capital or term loan requirements</li>
+                            </ul>
+                            <button class="btn btn-scheme mt-3">
+                                <i class="fa fa-university"></i> Contact SBI Branch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="scheme-card">
+                        <div class="scheme-content text-center">
+                            <div class="scheme-icon">
+                                <i class="fa fa-female"></i>
+                            </div>
+                            <div style="margin-top: 2rem;">
+                                <div class="stat-number" style="font-size: 2rem;">₹2Cr</div>
+                                <div class="stat-label">Maximum Loan</div>
+                            </div>
+                            <div style="margin-top: 2rem;">
+                                <div class="stat-number" style="font-size: 2rem;">0.5%</div>
+                                <div class="stat-label">Interest Concession</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Udyogini Scheme -->
+    <section class="scheme-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="scheme-card">
+                        <div class="scheme-content text-center">
+                            <div class="scheme-icon">
+                                <i class="fa fa-line-chart"></i>
+                            </div>
+                            <span class="scheme-badge">Government Initiative</span>
+                            <h3 class="scheme-title">Udyogini Scheme</h3>
+                            <p class="scheme-text">A comprehensive scheme established to financially aid women entrepreneurs, especially from economically weaker sections.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="scheme-card">
+                        <div class="scheme-content">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1.5rem; font-weight: 700;">Eligibility & Benefits</h4>
+                            <ul class="scheme-list">
+                                <li>Applicants must be between 18 and 45 years of age</li>
+                                <li>Family income should be less than ₹40,000 per annum in urban areas</li>
+                                <li>Family income should be less than ₹30,000 per annum in rural areas</li>
+                                <li>Preference given to women from SC/ST and minority communities</li>
+                                <li>Widows, destitute women, and physically handicapped women get priority</li>
+                                <li>Loan amount ranges from ₹10,000 to ₹1 lakh</li>
+                                <li>30% subsidy on the loan amount provided by the government</li>
+                                <li>Repayment period up to 10 years</li>
+                            </ul>
+                            <button class="btn btn-scheme mt-3">
+                                <i class="fa fa-file-text"></i> Check Eligibility
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Schemes Overview -->
+    <section style="padding: 5rem 0; background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Other Important Schemes</h2>
+            <p class="section-subtitle" data-aos="fade-up">More opportunities for women entrepreneurs</p>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="scheme-card">
+                        <div class="scheme-content text-center">
+                            <i class="fa fa-briefcase" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <h4 style="margin-bottom: 1rem;">Trade Related Entrepreneurship</h4>
+                            <p class="scheme-text">Assistance Program (TREAD) provides training and empowerment to women in rural areas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="scheme-card">
+                        <div class="scheme-content text-center">
+                            <i class="fa fa-industry" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                            <h4 style="margin-bottom: 1rem;">Annapurna Scheme</h4>
+                            <p class="scheme-text">Specifically for women entrepreneurs in food catering businesses with loans up to ₹50,000.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="scheme-card">
+                        <div class="scheme-content text-center">
+                            <i class="fa fa-users" style="font-size: 3rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                            <h4 style="margin-bottom: 1rem;">Cent Kalyani Scheme</h4>
+                            <p class="scheme-text">Central Bank of India scheme for women entrepreneurs with flexible repayment options.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="padding: 3rem 0; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white;">
+        <div class="container text-center">
+            <h3 style="margin-bottom: 1.5rem;">Ready to Start Your Business?</h3>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">Contact us for business guidance and scheme information</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div><i class="fa fa-envelope"></i> S.Kumar@iiitb.ac.in</div>
+                <div><i class="fa fa-phone"></i> 9720391267</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Women Empowerment Portal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-medium"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/aos.js"></script>
     <script>
-      AOS.init({
-      });
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-modern');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Responsive chart
+        window.addEventListener('resize', function() {
+            if (typeof google !== 'undefined' && google.charts) {
+                drawChart();
+            }
+        });
     </script>
 </body>
-
 </html>

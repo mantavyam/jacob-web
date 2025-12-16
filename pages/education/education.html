@@ -1,21 +1,334 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>MERISHAKTI
-    </title>
-    <meta name="description" content="Free bootstrap template Atlas">
-    <link rel="icon" href="../../assets/images/favicon.png" sizes="32x32" type="image/png">
-    <!-- custom.css -->
-    <link rel="stylesheet" href="../../assets/css/custom.css">
-    <!-- bootstrap.min.css -->
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-	<!-- font-awesome -->
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="Government schemes for women's education in India - Beti Bachao Beti Padhao, Sukanya Samriddhi Yojana, and more">
+    <title>Women's Education Schemes | Women Empowerment Portal</title>
     
-    <!-- AOS -->
+    <link rel="icon" href="../../assets/images/favicon.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../assets/css/aos.css">
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <style>
+        :root {
+            --primary-color: oklch(0.205 0 0);
+            --secondary-color: oklch(0.269 0 0);
+            --accent-color: oklch(0.577 0.245 27.325);
+            --dark-color: oklch(0.145 0 0);
+            --light-color: oklch(0.985 0 0);
+            --success-color: oklch(0.646 0.222 41.116);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar-modern {
+            background: var(--dark-color);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-modern.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar-brand img { height: 40px; width: auto; }
+        
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after { width: 80%; }
+        
+        .btn-nav {
+            background: white;
+            color: var(--primary-color) !important;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: var(--accent-color);
+            color: white !important;
+            transform: scale(1.05);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(32, 32, 32, 0.9) 0%, rgba(64, 64, 64, 0.9) 100%),
+                        url('../../assets/images/edu.png') center/cover no-repeat;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .btn-hero {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hero:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, #f8f9fa, white);
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Chart Section */
+        .chart-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+        
+        /* Scheme Cards */
+        .scheme-section {
+            padding: 5rem 0;
+        }
+        
+        .scheme-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .scheme-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .scheme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .scheme-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .scheme-content {
+            padding: 2.5rem;
+        }
+        
+        .scheme-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .scheme-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        .scheme-text {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .scheme-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .scheme-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: start;
+        }
+        
+        .scheme-list li:before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: 700;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
     
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -25,212 +338,289 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Female GER', 'Male GER'],
-          ['2012-13',  20.1,      22.7],
-          ['2013-14',  22.0,      23.9],
-          ['2014-15',  23.2,       25.3],
-          ['2015-16',  23.5,      25.4],
-          ['2016-17',  24.5,      26.0],
-          ['2017-18',  25.4,      26.3],
-          ['2018-19',  26.4,      26.3],
-          ['2019-20',  27.3,      26.9]
-          
+          ['2012-13', 20.1, 22.7],
+          ['2013-14', 22.0, 23.9],
+          ['2014-15', 23.2, 25.3],
+          ['2015-16', 23.5, 25.4],
+          ['2016-17', 24.5, 26.0],
+          ['2017-18', 25.4, 26.3],
+          ['2018-19', 26.4, 26.3],
+          ['2019-20', 27.3, 26.9]
         ]);
 
         var options = {
-          title: 'Gross Enrolment Ratio',
+          title: 'Gross Enrolment Ratio - Gender Comparison',
           curveType: 'function',
-          legend: { position: 'bottom' }
+          legend: { position: 'bottom' },
+          colors: ['#ff6b6b', '#2575fc'],
+          backgroundColor: 'transparent',
+          chartArea: {width: '85%', height: '70%'},
+          hAxis: { title: 'Academic Year' },
+          vAxis: { title: 'GER (%)' }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
         chart.draw(data, options);
       }
     </script>
 </head>
-
 <body>
-    <!-- banner -->
-    <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(../../assets/images/edu.png);">
-        <div class="container text-center text-md-left">
-            <header>
-                <div class="row justify-content-between">
-                    <div class="col-2">
-                        <img src="../../assets/images/logo.png" alt="logo">
-                    </div>
-                    <div class="col-6 align-self-center text-right">
-                        <a href="#" class="text-black lead"> </a>
-                    </div>
-                </div>
-            </header>
-            <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
-            	Government Schemes for <br>
-            	Women's Education
-            </h1>
-            <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
-                Women's education is a critical issue in India,and the India
-                 <br>government hasimplemented several schemes aim to improve 
-                 <br> the literacy rate of  and empower them to lead a better life.
-            </p>
-            <a href="../home/index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
-        </div>
-    </div>
-    
-    <!-- feature (skew background) -->
-    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
-        <div class="container my-5">
-            <div class="row justify-content-between text-center text-md-left">
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                    <h2 class="font-weight-bold">Beti Bachao Beti Padhao</h2>
-                    <p class="my-4">Beti Bachao Beti Padhao is a central government scheme that helps girls
-                        <br> throughout the nation. The primary purpose of this scheme is to save the child
-                        <br> from social problems such as gender-based abortions and advance child education
-                        <br> around the country. This program was initially meant for districts considered 
-                        <br>to have a low sex ratio and successfully extended to other regions of the 
-                        <br>country. This is essentially an educational programme to help change societal
-                        <br> attitudes and does not entail the immediate transfer of funds. The key aims 
-                        <br>of this child protection scheme include:</p>
-                    
-                </div>
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
-                    
-                    <video width="600" height="500" controls>
-                        <source src="../../assets/BBBP.mp4" type="video/mp4">
-                      
-                      </video>
-
-                      <div id="curve_chart" style="width: 900px; height: 500px;margin-left: -44em;"></div>
- 
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- feature (green background) -->
-    <div class="jumbotron jumbotron-fluid feature" id="feature-last">
+    <!-- Navigation -->
+    <nav class="navbar navbar-modern navbar-expand-lg">
         <div class="container">
-            <div class="row justify-content-between text-center text-md-left">
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 flex-md-last">
-                    <h2 class="font-weight-bold">Sukanya Samriddhi Yojana</h2>
-                    <p class="my-4">
-                        Sukanya Samriddhi Yojana Account is a Government of India backed savings 
-                        <br>scheme designed for parents of girl children. The scheme allows parents
-                        <br> to set up a trust for their child's eventual schooling and marriage 
-                        <br>expenses. It encourages parents to systematically save for their 
-                        <br>daughter’s higher education and marriage so that the perception of
-                        <br> a girl child being a burden on her parents is abolished.
-                        <br>
-                        <br>Savings account specially designed for parents of girl children
-                        Encourages parents to save towards the education of the girl child; introduced as part of the ‘Beti Padhao Beti Bachao’ movement
-                        Parents of girl children under the age of 10 can open this account
-                        Only 2 accounts allowed per family; exemptions allowed in case of twins or triplets
-                        Minimum deposit of Rs.250 per annum and maximum of Rs.1.5 lakhs
-                        Tax exemption available on the deposited amount, interest accrued and the withdrawal amount
-                        Maximum tenure of the account shall be 21 years from the date of opening of account or the marriage of the girl child, whichever is earlier
-                        Deposits allowed for a maximum of 15 years from the date of opening of account
-                        Partial withdrawal of up to 50% allowed once the girl reaches 18 years of age
-                        Account can be opened at your nearest post office or any of the public and private sector banks
-                    </p>
-                    
-                </div>
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center flex-md-first">
-                    <img src="../../assets/images/ssy.jpg" alt="Safe and reliable" class="mx-auto d-block">
-                </div>
+            <a class="navbar-brand" href="../home/index.html">
+                <img src="../../assets/images/logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span>Women Empowerment Portal</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../home/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../entrepreneurship/entrepreneurship.html">Entrepreneurship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../protection/protection.html">Protection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard/dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav" href="../registration/complaint-form.html">File Complaint</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-<!-- feature (skew background) -->
-<div class="jumbotron jumbotron-fluid feature" id="feature-first">
-    <div class="container my-5">
-        <div class="row justify-content-between text-center text-md-left">
-            <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                <h2 class="font-weight-bold">Mukhyamantri Rajshri Yojana</h2>
-                <p class="my-4">The Mukhyamantri Rajshri Yojana was launched in Rajasthan. It offers
-                    <br> monetary benefits to parents of girl children, starting from their birth till
-                    <br> their higher education;
+    </nav>
 
-                    <br> 
-                    <br>Rs.2500 is given to the mother at the birth of a girl child
-                    Once the child completes one year, with all vaccinations done, Rs 2500 is given through a cheque.
-                    At the time of admission in any public school into grade I, Rs.4000 is paid to the girl child.
-                    Rs.5000 is paid when the child enters Grade VI
-                    Rs. 11000 is paid once the girl enters Grade XI
-                    <br>Who is eligible to enter the Scheme?
-                    
-                    <br>The scheme is only open to all permanent residents of the Rajasthan state.
-                    The scheme is open for a girl child born after 1st June’16.</p>
-                    <a href="../home/index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
-            </div>
-            <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
-                <img src="../../assets/images/PRY.jpg" alt="Take a look inside" class="mx-auto d-block">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Government Schemes for<br>Women's Education</h1>
+                <p>Women's education is a critical issue in India. The government has implemented several schemes aimed at improving the literacy rate of women and empowering them to lead a better life.</p>
+                <a href="../home/index.html" class="btn btn-hero">
+                    <i class="fa fa-home"></i> Back to Home
+                </a>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-    <!-- price table -->
-    
-  
-    <!-- client -->
-    <div class="jumbotron jumbotron-fluid">
+    <!-- Stats Section -->
+    <section class="stats-section">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                    <img src="../../assets/images/gov.png" class="mx-auto d-block">
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-card">
+                        <div class="stat-number">27.3%</div>
+                        <div class="stat-label">Female GER 2019-20</div>
+                    </div>
                 </div>
-                <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                    <img src="../../assets/images/BBBP.jpg" class="mx-auto d-block">
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="stat-number">7.2%</div>
+                        <div class="stat-label">Growth Since 2012</div>
+                    </div>
                 </div>
-
-                
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Active Schemes</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="stat-number">28</div>
+                        <div class="stat-label">States Covered</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- contact -->
-    <div class="jumbotron jumbotron-fluid" id="contact" style="background-image: url(../../assets/images/contact-bk.jpg);">
-        <div class="container my-5">
-            <div class="row justify-content-between">
-                <div class="col-md-6 text-white">
-                    <h2 class="font-weight-bold">Contact Us</h2>
-                   
-                    <ul class="list-unstyled">
-                        <li>Email : S.Kumar@iiitb.ac.in</li>
-                        <li>Phone : 9720391267</li>
-                        <li>Address :IIITB, Electronic City, Bengaluru, India</li>
-                    </ul>
-                
-            </div>
-        </div>
-    </div>
+    </section>
 
-	<!-- copyright -->
-	<div class="jumbotron jumbotron-fluid" id="copyright">
+    <!-- Chart Section -->
+    <section class="chart-section">
         <div class="container">
-            <div class="row justify-content-between">
-            	
-                <div class="col-md-6 align-self-center text-center text-md-right my-2" id="social-media">
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-medium" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
+            <h2 class="section-title" data-aos="fade-up">Education Progress Analytics</h2>
+            <p class="section-subtitle" data-aos="fade-up">Tracking Gross Enrolment Ratio trends over the years</p>
+            <div class="chart-container" data-aos="fade-up">
+                <div id="curve_chart" style="width: 100%; height: 500px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Player Section -->
+    <section class="chart-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Beti Bachao Beti Padhao Campaign</h2>
+            <p class="section-subtitle" data-aos="fade-up">Watch the informational video about this important initiative</p>
+            <div class="chart-container" data-aos="fade-up">
+                <video width="100%" height="500" controls style="border-radius: 12px;">
+                    <source src="../../assets/BBBP.mp4" type="video/mp4" onerror="this.parentElement.innerHTML='<p style=\'text-align:center;color:#666;padding:2rem;\'>Video not available</p>'">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beti Bachao Beti Padhao -->
+    <section class="scheme-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="scheme-card">
+                        <div class="scheme-content">
+                            <span class="scheme-badge">Government Initiative</span>
+                            <h2 class="scheme-title">Beti Bachao Beti Padhao</h2>
+                            <p class="scheme-text">
+                                A central government scheme that helps girls throughout the nation. The primary purpose is to save the child from social problems such as gender-based abortions and advance child education around the country.
+                            </p>
+                            <ul class="scheme-list">
+                                <li>Initially meant for districts with low sex ratio</li>
+                                <li>Successfully extended to other regions</li>
+                                <li>Educational programme to change societal attitudes</li>
+                                <li>Focus on girl child protection and empowerment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="../../assets/images/BBBP.jpg" alt="Beti Bachao Beti Padhao" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- AOS -->
+    </section>
+
+    <!-- Sukanya Samriddhi Yojana -->
+    <section class="scheme-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left">
+                    <div class="scheme-content" style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.08);">
+                        <span class="scheme-badge">Savings Scheme</span>
+                        <h2 class="scheme-title">Sukanya Samriddhi Yojana</h2>
+                        <p class="scheme-text">
+                            A Government of India backed savings scheme designed for parents of girl children, encouraging systematic saving for education and marriage expenses.
+                        </p>
+                        <ul class="scheme-list">
+                            <li>Minimum deposit: ₹250 per annum</li>
+                            <li>Maximum deposit: ₹1.5 lakhs</li>
+                            <li>Tax exemption on deposits and interest</li>
+                            <li>Account tenure: 21 years from opening</li>
+                            <li>Partial withdrawal allowed at 18 years</li>
+                            <li>Available at post offices and banks</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+                    <img src="../../assets/images/ssy.jpg" alt="Sukanya Samriddhi Yojana" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mukhyamantri Rajshri Yojana -->
+    <section class="scheme-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="scheme-content" style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.08);">
+                        <span class="scheme-badge">Rajasthan Government</span>
+                        <h2 class="scheme-title">Mukhyamantri Rajshri Yojana</h2>
+                        <p class="scheme-text">
+                            Launched in Rajasthan, offering monetary benefits to parents of girl children from birth till higher education.
+                        </p>
+                        <ul class="scheme-list">
+                            <li>₹2,500 at birth of girl child</li>
+                            <li>₹2,500 at one year with vaccinations</li>
+                            <li>₹4,000 at Grade I admission</li>
+                            <li>₹5,000 at Grade VI</li>
+                            <li>₹11,000 at Grade XI</li>
+                            <li>Only for permanent Rajasthan residents</li>
+                            <li>Girls born after June 1, 2016 eligible</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="../../assets/images/PRY.jpg" alt="Mukhyamantri Rajshri Yojana" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Logos -->
+    <section style="padding: 3rem 0; background: #f8f9fa;">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-3 text-center mb-3" data-aos="fade-up">
+                    <img src="../../assets/images/gov.png" alt="Government of India" style="max-width: 150px; opacity: 0.7;">
+                </div>
+                <div class="col-md-3 text-center mb-3" data-aos="fade-up" data-aos-delay="100">
+                    <img src="../../assets/images/BBBP.jpg" alt="Beti Bachao Beti Padhao" style="max-width: 150px; opacity: 0.7;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="padding: 3rem 0; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white;">
+        <div class="container text-center">
+            <h3 style="margin-bottom: 1.5rem;">Need More Information?</h3>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">Contact us for detailed information about education schemes</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div><i class="fa fa-envelope"></i> S.Kumar@iiitb.ac.in</div>
+                <div><i class="fa fa-phone"></i> 9720391267</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Women Empowerment Portal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-medium"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/aos.js"></script>
     <script>
-      AOS.init({
-      });
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-modern');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Responsive chart
+        window.addEventListener('resize', function() {
+            if (typeof google !== 'undefined' && google.charts) {
+                drawChart();
+            }
+        });
     </script>
 </body>
-
 </html>

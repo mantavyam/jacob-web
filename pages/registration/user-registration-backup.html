@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Register</title>
+    
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='../../assets/css/forms.css'>
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+    <!-- bootstrap.min.css -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <script src='../../assets/js/main.js'></script>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
+        <div class="container my-5">
+            <div class="row justify-content-between text-center text-md-left">
+                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
+                    <h2 class="font-weight-bold">Register Yourself</h2>
+                    <form action="../../backend/forms/user-registration-handler.php" method="POST">
+                        Name :<input type="text" name="useram" placeholder="Write your email..">
+                        E Mail :<input type="text" name="email" placeholder="Write your email..">
+                         Male :<input type="radio" name="gender" value="Male">
+                        Female :<input type="radio" name="gender" value="Female">
+                        Other :<input type="radio" name="gender" value="Other" checked>
+                        <input type =password name="pass" placeholder="Password"> 
+                        <textarea name="message" placeholder="Write your message"></textarea>
+                        <select name="car" >
+                            <option value="male">male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <button type="Submit" name="submit">Submit</button>
+                        
+                           </form> 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>

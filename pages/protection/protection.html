@@ -1,282 +1,735 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>MERISHAKTI
-    </title>
-    <meta name="description" content="Free bootstrap template Atlas">
+    <meta name="description" content="Women protection laws, legal rights, and complaint registration - NCW, Domestic Violence Act, IPC sections">
+    <title>Women Protection & Legal Rights | Women Empowerment Portal</title>
+    
     <link rel="icon" href="../../assets/images/favicon.png" sizes="32x32" type="image/png">
-    <!-- custom.css -->
-    <link rel="stylesheet" href="../../assets/css/custom.css">
-    <!-- bootstrap.min.css -->
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-	<!-- font-awesome -->
     <link rel="stylesheet" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    
-    <!-- AOS -->
     <link rel="stylesheet" href="../../assets/css/aos.css">
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="../../assets/css/custom.css">
     
+    <style>
+        :root {
+            --primary-color: oklch(0.205 0 0);
+            --secondary-color: oklch(0.269 0 0);
+            --accent-color: oklch(0.577 0.245 27.325);
+            --dark-color: oklch(0.145 0 0);
+            --light-color: oklch(0.985 0 0);
+            --success-color: oklch(0.646 0.222 41.116);
+            --warning-color: oklch(0.828 0.189 84.429);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar-modern {
+            background: var(--dark-color);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-modern.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar-brand img { height: 40px; width: auto; }
+        
+        .navbar-toggler { border: none; padding: 0.25rem 0.75rem; }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after { width: 80%; }
+        
+        .btn-nav {
+            background: white;
+            color: var(--primary-color) !important;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: var(--accent-color);
+            color: white !important;
+            transform: scale(1.05);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.9) 0%, rgba(37, 117, 252, 0.9) 100%),
+                        url('../../assets/images/protection.png') center/cover no-repeat;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .btn-hero {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        
+        .btn-hero:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            text-decoration: none;
+        }
+        
+        .btn-hero-secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-hero-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        /* Emergency Section */
+        .emergency-section {
+            background: var(--accent-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .emergency-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, #f8f9fa, white);
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* Chart Section */
+        .chart-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+        
+        /* Laws Section */
+        .laws-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+        
+        .law-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .law-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .law-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .law-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .law-text {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* NCW Section */
+        .ncw-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .ncw-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .ncw-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ncw-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .ncw-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: start;
+        }
+        
+        .ncw-list li:before {
+            content: '✓';
+            font-weight: 700;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Resources Section */
+        .resources-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .resource-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .section-title { font-size: 1.8rem; }
+            .emergency-number { font-size: 2rem; }
+        }
+    </style>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['geochart','corechart'],
-      'mapsApiKey': 'AIzaSyAyHsTkkSRCBZjkZ7R2ATvuKdFK3MtoFro'
-  
-    });
-    google.charts.setOnLoadCallback(function() {
-     drawRegionsMap();
-  });
-      
+      google.charts.load('current', {
+        'packages':['geochart'],
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
       function drawRegionsMap() {
-        var data2 = google.visualization.arrayToDataTable([
-        ['State', 'Complaints registered'],
-                ['Andhra Pradesh', 179],
-                ['Arunachal Pradesh', 7],
-                ['Assam', 85],
-                ['Bihar', 1242],
-                ['Chhattisgarh', 177],
-                ['Goa', 13],
-                ['Gujarat', 232],
-                ['Haryana', 1402],
-                ['Himachal Pradesh', 113],
-                ['Jharkhand', 406],
-                ['Karnataka', 511],
-                ['Kerala', 177],
-                ['Madhya Pradesh', 985],
-                ['Maharashtra', 1431],
-                ['Manipur', 7],
-                ['Meghalaya', 9],
-                ['Mizoram', 2],
-                ['Nagaland', 1],
-                ['Odisha', 156],
-                ['Punjab', 468],
-                ['Rajasthan', 1012],
-                ['Sikkim', 3],
-                ['Tamil Nadu', 511],
-                ['Telangana', 222],
-                ['Tripura', 9],
-                ['Uttar Pradesh', 13058],
-                ['Uttarakhand', 431],
-                ['West Bengal', 507],
-                ['Union Territory', 50]
+        var data = google.visualization.arrayToDataTable([
+          ['State', 'Cases'],
+          ['IN-UP', 39632],
+          ['IN-MH', 38298],
+          ['IN-RJ', 33698],
+          ['IN-WB', 33155],
+          ['IN-BR', 26921],
+          ['IN-AP', 20709],
+          ['IN-MP', 19936],
+          ['IN-DL', 15280],
+          ['IN-TN', 14233],
+          ['IN-HR', 13836],
+          ['IN-GJ', 12825],
+          ['IN-OR', 12560],
+          ['IN-KA', 11230],
+          ['IN-AS', 11041],
+          ['IN-JH', 7016],
+          ['IN-PB', 6614],
+          ['IN-KL', 6393],
+          ['IN-CT', 5893],
+          ['IN-UT', 2965],
+          ['IN-JK', 2687],
+          ['IN-HP', 2356],
+          ['IN-TR', 1627],
+          ['IN-MN', 1135],
+          ['IN-MZ', 638],
+          ['IN-NL', 398],
+          ['IN-AR', 384],
+          ['IN-GA', 341],
+          ['IN-SK', 223]
         ]);
 
         var options = {
-          region: 'IN', // ISO 3166-1 alpha-2 country code
-                resolution: 'provinces',
-                domain:'IN',
-                colorAxis: {
-                    colors: ['cyan', 'blue', 'BLACK']
-                }
-
+          region: 'IN',
+          displayMode: 'regions',
+          resolution: 'provinces',
+          colorAxis: {colors: ['#e3f2fd', '#2575fc', '#6a11cb']},
+          backgroundColor: 'transparent',
+          datalessRegionColor: '#f5f5f5',
+          defaultColor: '#f5f5f5',
         };
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-        chart.draw(data2, options);
-      };
-
-       
-      
+        chart.draw(data, options);
+      }
     </script>
 </head>
-
 <body>
-    <!-- banner -->
-    <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(../../assets/images/women.jpg);">
-        <div class="container text-center text-md-left">
-            <header>
-                <div class="row justify-content-between">
-                    <div class="col-2">
-                        <img src="../../assets/images/logo.png" alt="logo">
-                    </div>
-                    <div class="col-6 align-self-center text-right">
-                        <a href="#" class="text-white lead"> </a>
-                    </div>
-                </div>
-            </header>
-            <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
-            	Prevention of Violence
-                <br> against Women
-            </h1>
-            <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
-                The Constitution of India not only grants equality to women but also
-empowers the State to adopt measures of positive discrimination in favour
-of women for neutralizing the cumulative socio-economic, educational and
-political disadvantages faced by them
-
-
-            </p>
-            <a href="../home/index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
-        </div>
-    </div>
-    
-    <!-- feature (skew background) -->
-    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
-        <div class="container my-5">
-            <div class="row justify-content-between text-center text-md-left">
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                    <h2 class="font-weight-bold">Instant Compliant Registeration 
-                        <br>under National Comission for Wemon </h2>
-                    <p class="my-4">November 25 is celebrated every year
-                        as the International Day for the
-                        Elimination of Violence against
-                        Women. Violence against women and
-                        girls (VAWG) 1
-                        is one of the most
-                        widespread, persistent and
-                        devastating human rights violations in
-                        our world today and remains largely
-                        unreported due to the impunity, silence,
-                        stigma and shame surrounding it
-                        <br>For any issue related to Violence against Women
-                        Please Call on 24x7 Helpline : 7827-170-170</p>
-                        <a href="../registration/complaint-form.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Compliant Registeration</a>
-                
-                        
-    
-                
-                
-                    </div>
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
-                    <img src="../../assets/images/ncw.png" alt="Take a look inside" class="mx-auto d-block">
-                    
-                </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-modern navbar-expand-lg">
+        <div class="container align-items-lg-center">
+            <a class="navbar-brand" href="../home/index.html">
+                <img src="../../assets/images/logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span>Women Empowerment Portal</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" style="background: white; padding: 0.5rem;">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../home/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../education/education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../entrepreneurship/entrepreneurship.html">Entrepreneurship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="protection.html">Protection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard/dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav" href="../registration/complaint-form.html">File Complaint</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-    <h2 class="font-weight-bold">Complaints of violence against women registered in Indian states </h2>
-    <div  class="jumbotron jumbotron-fluid feature"  id="regions_div" style="width: 100%; height: 900px;">
-    
-    </div>
-    <!-- feature (green background) -->
-    <div class="jumbotron jumbotron-fluid feature" id="feature-last">
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <div class="row justify-content-between text-center text-md-left">
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 flex-md-last">
-                    <h2 class="font-weight-bold">Statutary Laws againstgender based violence </h2>
-                    <p class="my-4">
-                        The Ministry of Women and Child Development has been administering various
-                        <br> special laws relating to women such as ‘The Protection of Women from
-                        <br> Domestic Violence Act, 2005’, ‘The Dowry Prohibition Act, 1961’, 
-                        <br>‘The Indecent Representation of Women (Prohibition) Act, 1986’, 
-                        <br>‘The Sexual Harassment of Women at Workplace (Prevention, Prohibition
-                        <br> and Redressal) Act, 2013’
-                    </p>
-                    
-                </div>
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center flex-md-first">
-                    <img src="../../assets/images/ipc.jpg" alt="Safe and reliable" class="mx-auto d-block">
-                </div>
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Women Safety &<br>Legal Protection</h1>
+                <p>Know your rights. Protect yourself. Stand strong against violence and discrimination. We provide comprehensive information about legal protection and support services for women across India.</p>
+                <a href="../home/index.html" class="btn btn-hero">
+                    <i class="fa fa-home"></i> Back to Home
+                </a>
+                <a href="../registration/complaint-form.html" class="btn btn-hero btn-hero-secondary">
+                    <i class="fa fa-file-text"></i> File a Complaint
+                </a>
             </div>
         </div>
-    </div>
-<!-- feature (skew background) -->
-<div class="jumbotron jumbotron-fluid feature" id="feature-first">
-    <div class="container my-5">
-        <div class="row justify-content-between text-center text-md-left">
-            <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                <h2 class="font-weight-bold">Legislative measures – Legal rights of women </h2>
-                <p class="my-4">(1)                 The crimes identified under the Indian Penal Code (IPC)
+    </section>
 
-                    (i)                   Rape (sec.376 IPC)
-                    
-                    (ii)                 Kidnapping & abduction for different purposes (sec.363 – 373 IPC)
-                    
-                    (iii)                Homicide for Dowry, Dowry Deaths or their attempts (sec.302/304-B of IPC)
-                    
-                    (iv)                Torture, both mental and physical (sec.498-A of IPC)
-                    
-                    (v)                  Molestation (sec.354 of IPC)
-                    
-                    (vi)                Sexual harassment (sec.509 of IPC) (referred to in the past as Eve-teasing)
-                    
-                    (vii)               Importation of girls (upto 21 years of age) (sec.366-B of IPC)
-                    
-                    (2)                 The crimes identified under the Special laws, such as :
-                    
-                    (i)                   Commission of Sati (Prevention) Act, 1987
-                    
-                    (ii)                 Dowry Prohibition Act, 1961
-                    
-                    (iii)                Indecent Representation of Women (Prohibition) Act, 1986
-                    
-                    (iv)                Immoral Traffic (Prevention) Act, 1956
-                    
-                    (v)                  Protection of Women from Domestic Violence Act, 2005</p>
-                    <a href="../home/index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
+    <!-- Emergency Section -->
+    <section class="emergency-section">
+        <div class="container">
+            <h2 style="margin-bottom: 0.5rem;">Emergency Helpline</h2>
+            <div class="emergency-number">
+                <i class="fa fa-phone"></i> 1091
             </div>
-            <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
-                <img src="../../assets/images/dv.jpeg" alt="Take a look inside" class="mx-auto d-block">
-            </div>
+            <p style="font-size: 1.1rem;">Women's Helpline (Available 24/7)</p>
         </div>
-    </div>
-</div>
+    </section>
 
-    <!-- price table -->
-    
-  
-    <!-- client -->
-    <div class="jumbotron jumbotron-fluid">
+    <!-- Stats Section -->
+    <section class="stats-section">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                    <img src="../../assets/images/gov.png" class="mx-auto d-block">
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-card">
+                        <div class="stat-number">338954</div>
+                        <div class="stat-label">Total Cases Reported</div>
+                    </div>
                 </div>
-                <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                    <img src="../../assets/images/ncw.png" class="mx-auto d-block">
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Helpline Available</div>
+                    </div>
                 </div>
-
-                
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-number">28</div>
+                        <div class="stat-label">States Covered</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Confidential Support</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- contact -->
-    <div class="jumbotron jumbotron-fluid" id="contact" style="background-image: url(../../assets/images/contact-bk.jpg);">
-        <div class="container my-5">
-            <div class="row justify-content-between">
-                <div class="col-md-6 text-white">
-                    <h2 class="font-weight-bold">Contact Us</h2>
-                   
-                    <ul class="list-unstyled">
-                        <li>Email : S.Kumar@iiitb.ac.in</li>
-                        <li>Phone : 9720391267</li>
-                        <li>Address :IIITB, Electronic City, Bengaluru, India</li>
-                    </ul>
-                
-            </div>
-        </div>
-    </div>
+    </section>
 
-	<!-- copyright -->
-	<div class="jumbotron jumbotron-fluid" id="copyright">
+    <!-- Chart Section -->
+    <section class="chart-section">
         <div class="container">
-            <div class="row justify-content-between">
-            	
-                <div class="col-md-6 align-self-center text-center text-md-right my-2" id="social-media">
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-medium" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
+            <h2 class="section-title" data-aos="fade-up">State-wise Complaint Distribution</h2>
+            <p class="section-subtitle" data-aos="fade-up">Geographic visualization of reported cases across India</p>
+            <div class="chart-container" data-aos="fade-up">
+                <div id="regions_div" style="width: 100%; height: 600px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NCW Section -->
+    <section class="ncw-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="../../assets/images/NCW.jpg" alt="National Commission for Women" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="ncw-card">
+                        <h2 class="ncw-title">National Commission for Women (NCW)</h2>
+                        <p style="margin-bottom: 2rem; opacity: 0.95;">
+                            The NCW is a statutory body of the Government of India, established to protect and promote the interests of women. It investigates and examines all matters relating to the constitutional and legal safeguards for women.
+                        </p>
+                        <ul class="ncw-list">
+                            <li>Investigates complaints and takes suo-motu notice of matters relating to women's rights</li>
+                            <li>Reviews constitutional and legal safeguards for women</li>
+                            <li>Participates and advises on planning process of socio-economic development</li>
+                            <li>Evaluates progress of development for women</li>
+                            <li>Inspects jails, remand homes, and women's institutions</li>
+                            <li>Calls for special studies on issues of discrimination and atrocities</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- AOS -->
+    </section>
+
+    <!-- Laws Section -->
+    <section class="laws-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Important Legal Provisions</h2>
+            <p class="section-subtitle" data-aos="fade-up">Understanding laws that protect women's rights in India</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="law-card">
+                        <div class="law-number">IPC Section 354</div>
+                        <h3 class="law-title">Assault or Criminal Force to Women</h3>
+                        <p class="law-text">
+                            Whoever assaults or uses criminal force to any woman, intending to outrage or knowing it to be likely that he will thereby outrage her modesty, shall be punished with imprisonment for a term which may extend to two years, or with fine, or with both.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="law-card">
+                        <div class="law-number">IPC Section 498A</div>
+                        <h3 class="law-title">Cruelty by Husband or Relatives</h3>
+                        <p class="law-text">
+                            Whoever, being the husband or relative of the husband of a woman, subjects such woman to cruelty shall be punished with imprisonment for a term which may extend to three years and shall also be liable to fine. Cruelty includes harassment for dowry demands.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="law-card">
+                        <div class="law-number">IPC Section 509</div>
+                        <h3 class="law-title">Word, Gesture or Act to Insult Modesty</h3>
+                        <p class="law-text">
+                            Whoever, intending to insult the modesty of any woman, utters any word, makes any sound or gesture, or exhibits any object, intending that such word or sound shall be heard, or that such gesture or object shall be seen, by such woman, shall be punished with simple imprisonment for a term which may extend to three years, and also with fine.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="law-card">
+                        <div class="law-number">Domestic Violence Act 2005</div>
+                        <h3 class="law-title">Protection of Women from Domestic Violence</h3>
+                        <p class="law-text">
+                            This Act provides for more effective protection of the rights of women guaranteed under the Constitution who are victims of violence of any kind occurring within the family. It covers physical, sexual, verbal, emotional, and economic abuse.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Support Resources</h2>
+            <p class="section-subtitle" data-aos="fade-up">Access help and support services</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <h4 style="margin-bottom: 1rem; color: var(--dark-color);">Women Helpline</h4>
+                        <p class="law-text" style="margin-bottom: 1.5rem;">24/7 emergency assistance and counseling support</p>
+                        <h3 style="color: var(--primary-color);">1091</h3>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fa fa-shield"></i>
+                        </div>
+                        <h4 style="margin-bottom: 1rem; color: var(--dark-color);">Police Assistance</h4>
+                        <p class="law-text" style="margin-bottom: 1.5rem;">Immediate police intervention for emergencies</p>
+                        <h3 style="color: var(--primary-color);">100</h3>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+                        <h4 style="margin-bottom: 1rem; color: var(--dark-color);">File Complaint</h4>
+                        <p class="law-text" style="margin-bottom: 1.5rem;">Register your complaint online confidentially</p>
+                        <a href="../registration/complaint-form.html" class="btn btn-hero" style="margin: 0; padding: 0.8rem 2rem; font-size: 1rem;">
+                            Register Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="padding: 3rem 0; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white;">
+        <div class="container text-center">
+            <h3 style="margin-bottom: 1.5rem;">Need Immediate Help?</h3>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">Our support team is here to assist you 24/7</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div><i class="fa fa-envelope"></i> S.Kumar@iiitb.ac.in</div>
+                <div><i class="fa fa-phone"></i> 9720391267</div>
+                <div><i class="fa fa-phone"></i> 1091 (Women Helpline)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Women Empowerment Portal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-medium"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/aos.js"></script>
     <script>
-      AOS.init({
-      });
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-modern');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Responsive chart
+        window.addEventListener('resize', function() {
+            if (typeof google !== 'undefined' && google.charts) {
+                drawRegionsMap();
+            }
+        });
     </script>
 </body>
-
 </html>

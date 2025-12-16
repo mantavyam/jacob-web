@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MERISHAKTI
+    </title>
+    <meta name="description" content="Free bootstrap template Atlas">
+    <link rel="icon" href="../../assets/images/favicon.png" sizes="32x32" type="image/png">
+    <!-- custom.css -->
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+    <!-- bootstrap.min.css -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+	<!-- font-awesome -->
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    
+    <!-- AOS -->
+    <link rel="stylesheet" href="../../assets/css/aos.css">
+
+    //
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawBasic);
+
+      function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['States of India', 'Proprietary distribution',],
+        ['West Bengal, WB', 2901324],
+        ['Tamil Naidu, TN', 1285263],
+        ['Telangana, TLN', 972424],
+        ['Karnataka, KN', 936905],
+        ['Uttar Pradesh, UP', 862796],
+        ['Andhra Pradesh, AP', 838033],
+        ['Gujarat, GJ', 826640],
+        ['Maharashtra, MH', 801197],
+        ['Kerala, KRL', 495962],
+        ['Rajasthan, RJ', 380007],
+        ['Madhya Pradesh, MP', 370427],
+        ['Jharkhand, JKH', 310388],
+        ['Odisha, OD', 295460],
+        ['Punjab, PJ', 224185],
+        ['Bihar, BH', 168347],
+        ['Haryana, HN', 98309],
+        ['Delhi, DL', 86742],
+        ['Manipur, MN', 86604],
+        ['Jammu & Kashmir, JK', 74785],
+        ['Chhattisgarh, CG', 71201]
+      ]);
+
+      var options = {
+       
+        hAxis: {
+          title: 'e Distribution of Proprietary MSMEs by Women',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'City'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+     
+    </script>
+</head>
+
+<body>
+    <!-- banner -->
+    <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(../../assets/images/entre.jpg);">
+        <div class="container text-center text-md-left">
+            <header>
+                <div class="row justify-content-between">
+                    <div class="col-2">
+                        <img src="../../assets/images/logo.png" alt="logo">
+                    </div>
+                    <div class="col-6 align-self-center text-right">
+                        <a href="#" class="text-white lead"> </a>
+                    </div>
+                </div>
+            </header>
+            <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
+            	Schemes for Female Entrepreneurs
+            </h1>
+            <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
+                The increasing presence of women as entrepreneurs has led to significant
+business and economic growth in the country. Government of India is
+providing various incentives to promote female entrepreneurs for a sustainable tommorow.
+            </p>
+            <a href="../home/index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
+        </div>
+    </div>
+ 
+    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
+        <div class="container my-5">
+            <div class="row justify-content-between text-center text-md-left">
+                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
+                    <h2 class="font-weight-bold">Distribution of Proprietary MSMEs by Women among top 20 Indian states</h2>
+                    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+                    
+                   
+                </div>
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- feature (skew background) -->
+    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
+        <div class="container my-5">
+            <div class="row justify-content-between text-center text-md-left">
+                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
+                    <h2 class="font-weight-bold">Mudra Loan for Women</h2>
+                    <p class="my-4">Beti Bachao Beti Padhao is a central government scheme that helps girls
+                        <br>Mudra Loan for Women was launched by the government as a woman loan scheme to 
+                        <br>offer financial support for enthusiastic women entrepreneurs. They seek a
+                        <br>  business plan like starting a beauty parlour, tuition centre, stitching shop,
+                        <br> etc. This scheme does not require any collateral to grant the loan. However, 
+                        <br>there are categories under which a Mudra loan application can be applied. They are as follows:
+
+                        <br>Shishu Loan: The maximum loan amount granted to businesses in the initial stage is Rs. 50,000. 
+                        
+                        <br>Kishor Loan: This loan is for businesses that are already established but wish to improve services. The amount of loan granted varies from Rs. 50,000 to Rs. 5 Lakhs. 
+                        
+                        <br>Tarun Loan: This loan is for well-established businesses planning to expand their reach and is short on capital; they can avail as much as Rs. 10 Lakhs for the purpose.
+                        </p>
+                    
+                </div>
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
+                    <img src="../../assets/images/mudra.jpg" alt="Take a look inside" class="mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- feature (green background) -->
+    <div class="jumbotron jumbotron-fluid feature" id="feature-last">
+        <div class="container">
+            <div class="row justify-content-between text-center text-md-left">
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 flex-md-last">
+                    <h2 class="font-weight-bold">Stree Shakti Yojana</h2>
+                    <p class="my-4">
+                        The Stree Shakti package is a unique government scheme for women that supports
+                        <br> entrepreneurship by providing certain concessions. This woman loan scheme 
+                        <br>is eligible for women who have the majority of ownership in the business. 
+                        <br>Another requirement is that these women entrepreneurs be enrolled under 
+                        <br>the Entrepreneurship Development Programme (EDP) organised by their
+                        <br> respective state agencies. This Stree Shakti scheme allows women to avail
+                        <br> of an interest concession of 0.05% on loans more than Rs. 2 lakh.
+                    </p>
+                    
+                </div>
+                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center flex-md-first">
+                    <img src="../../assets/images/stree.jpg" alt="Safe and reliable" class="mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- feature (skew background) -->
+<div class="jumbotron jumbotron-fluid feature" id="feature-first">
+    <div class="container my-5">
+        <div class="row justify-content-between text-center text-md-left">
+            <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
+                <h2 class="font-weight-bold">Udyogini Scheme</h2>
+                <p class="my-4">This program is ideal for ladies who want to establish their own business 
+                    <br>but don’t know where to begin. The GOI intends this scheme for women who belong
+                    <br> to a family that earns less than INR 1.5 lakhs per year, with no discrimination 
+                    <br>against widowed, poor, or disabled women. The scheme provides up to Rs 3 lakh in 
+                    <br>cash, with a low-interest rate. The goal is to assist women in becoming 
+                    <br>self-sufficient by creating their own enterprises, particularly in economically 
+                    <br>underdeveloped countries. Through loan subsidies, women can embark on a path of business.</p>
+                    <a href="../home/index.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Home</a>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
+                <img src="../../assets/images/udy.png" alt="Take a look inside" class="mx-auto d-block">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- price table -->
+    
+  
+    <!-- client -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                    <img src="../../assets/images/gov.png" class="mx-auto d-block">
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    <!-- contact -->
+    <div class="jumbotron jumbotron-fluid" id="contact" style="background-image: url(../../assets/images/contact-bk.jpg);">
+        <div class="container my-5">
+            <div class="row justify-content-between">
+                <div class="col-md-6 text-white">
+                    <h2 class="font-weight-bold">Contact Us</h2>
+                   
+                    <ul class="list-unstyled">
+                        <li>Email : S.Kumar@iiitb.ac.in</li>
+                        <li>Phone : 9720391267</li>
+                        <li>Address :IIITB, Electronic City, Bengaluru, India</li>
+                    </ul>
+                
+            </div>
+        </div>
+    </div>
+
+	<!-- copyright -->
+	<div class="jumbotron jumbotron-fluid" id="copyright">
+        <div class="container">
+            <div class="row justify-content-between">
+            	
+                <div class="col-md-6 align-self-center text-center text-md-right my-2" id="social-media">
+                    <a href="#" class="d-inline-block text-center ml-2">
+                    	<i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="d-inline-block text-center ml-2">
+                    	<i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="d-inline-block text-center ml-2">
+                    	<i class="fa fa-medium" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="d-inline-block text-center ml-2">
+                    	<i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AOS -->
+    <script src="../../assets/js/aos.js"></script>
+    <script>
+      AOS.init({
+      });
+    </script>
+</body>
+
+</html>

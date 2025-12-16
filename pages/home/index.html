@@ -1,274 +1,877 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>women education awarnness and support portal
-    </title>
-    <meta name="description" content="Free bootstrap template Atlas">
+    <meta name="description" content="Women Education Awareness and Support Portal - Empowering women through education, entrepreneurship opportunities, and protection from social evils.">
+    <meta name="keywords" content="women education, women empowerment, women entrepreneurship, women safety, India">
+    <title>Women Education Awareness & Support Portal | Empowering Women</title>
+    
+    <!-- Favicon -->
     <link rel="icon" href="../../assets/images/favicon.png" sizes="32x32" type="image/png">
-    <!-- custom.css -->
-    <link rel="stylesheet" href="../../assets/css/aos.css">
-
-    <link rel="stylesheet" href="../../assets/css/custom.css">
-    <!-- bootstrap.min.css -->
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-	<!-- font-awesome -->
     <link rel="stylesheet" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    
-    <!-- AOS -->
     <link rel="stylesheet" href="../../assets/css/aos.css">
+    <link rel="stylesheet" href="../../assets/css/custom.css">
     
+    <style>
+        :root {
+            --primary-color: oklch(0.205 0 0);
+            --secondary-color: oklch(0.269 0 0);
+            --accent-color: oklch(0.577 0.245 27.325);
+            --dark-color: oklch(0.145 0 0);
+            --light-color: oklch(0.985 0 0);
+            --success-color: oklch(0.646 0.222 41.116);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Modern Navigation */
+        .navbar-modern {
+            background: var(--dark-color);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-modern.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        .btn-nav {
+            background: white;
+            color: var(--primary-color) !important;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: var(--accent-color);
+            color: white !important;
+            transform: scale(1.05);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(32, 32, 32, 0.9) 0%, rgba(64, 64, 64, 0.9) 100%), 
+                        url('../../assets/images/banner-bk.jpg') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.05) 70%, transparent 70%);
+            background-size: 100px 100px;
+            animation: moveStripes 20s linear infinite;
+        }
+        
+        @keyframes moveStripes {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+        
+        .btn-hero {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            margin: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-hero-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-hero-primary:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .btn-hero-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-hero-outline:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Platform Functions Section */
+        .platform-functions {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, #f8f9fa 0%, white 100%);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+        
+        .function-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            height: 100%;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .function-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .function-icon {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .function-card:hover .function-icon {
+            transform: scale(1.05);
+        }
+        
+        .function-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .function-desc {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .btn-function {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+        }
+        
+        .btn-function:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+            text-decoration: none;
+        }
+        
+        /* Feature Sections */
+        .feature-section {
+            padding: 5rem 0;
+        }
+        
+        .feature-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .feature-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+        
+        .feature-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        .feature-text {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        /* News Cards */
+        .news-section {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, white 0%, #f8f9fa 100%);
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .news-text {
+            color: #666;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .news-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.95) 0%, rgba(37, 117, 252, 0.95) 100%),
+                        url('../../assets/images/contact-bk.jpg') center/cover;
+            color: white;
+        }
+        
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            margin-right: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .complaint-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .complaint-form h3 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.25);
+        }
+        
+        .btn-form {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-form:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+        
+        .quick-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quick-link-btn {
+            flex: 1;
+            padding: 0.75rem;
+            background: rgba(106, 17, 203, 0.1);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .quick-link-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .btn-hero {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .quick-links {
+                flex-direction: column;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
 </head>
-
 <body>
-    <!-- banner -->
-    <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(../../assets/images/banner-bk.jpg);">
-        <div class="container text-center text-md-left">
-            <header>
-                <div class="row justify-content-between">
-                    <div class="col-2">
-                        <img src="../../assets/images/logo.png" alt="logo">
-                    </div>
-                    <div class="col-6 align-self-center text-right">
-                        <a href="#" class="text-white lead"> </a>
-                    </div>
-                </div>
-            </header>
-            <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white   font-weight-bold my-5">
-            	Women education awarnness and support portal<br>
-            	Empowering Women
-            </h1>
-            <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
-                Women education awarnness and support portal is a platform helping India to achieve it's goal of "Sabka Saath Sabka Vikaas" 
-                <br> by empowering women by enabling them to access better education , enterprenuership 
-                <br> opportunities and protecting them from social evils.
-            </p>
-        </div>
-    </div>
-    <!-- three-blcok -->
-    <div class="container my-5 py-2">
-        <h2 class="text-center font-weight-bold my-5">Platform Functions </h2>
-        <div class="row">
-            <div data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
-                <img src="../../assets/images/smart-protect-1.jpg" alt="Education" class="mx-auto">
-                <h4>women's Education</h4>
-                <a href="../education/education.html" class="btn my-2 atlas-cta cta-blue">Learn More</a>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
-                <img src="../../assets/images/smart-protect-2.jpg" alt="Female Entrepreneurs" class="mx-auto">
-                <h4>Female Entrepreneurs</h4>
-                <a href="../entrepreneurship/entrepreneurship.html" class="btn my-2 atlas-cta cta-blue">Explore</a>
-                
-            </div>
-            <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
-                <img src="../../assets/images/smart-protect-3.jpg" alt="Protection against Gendered Violence" class="mx-auto">
-                <h4>Protection against Gendered Violence</h4>
-                <a href="../protection/protection.html" class="btn my-2 atlas-cta cta-blue">Get Help</a>
-            </div>
-        </div>
-    </div>
-    <!-- feature (skew background) -->
-    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
-        <div class="container my-5">
-            <div class="row justify-content-between text-center text-md-left">
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                    <h2 class="font-weight-bold">Government Schemes for Women's Education</h2>
-                    <p class="my-4">Women's education is a critical issue in India,and the Indian government has
-                        <br>  implemented several schemes aim to improve the literacy rate of women and empower them to lead a better life</p>
-                    <a href="../education/education.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Learn More</a>
-                </div>
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
-                    <img src="../../assets/images/edu.png" alt="Take a look inside" class="mx-auto d-block">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- feature (green background) -->
-    <div class="jumbotron jumbotron-fluid feature" id="feature-last">
+    <!-- Modern Navigation -->
+    <nav class="navbar navbar-modern navbar-expand-lg">
         <div class="container">
-            <div class="row justify-content-between text-center text-md-left">
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 flex-md-last">
-                    <h2 class="font-weight-bold">Schemes for Female Entrepreneurs</h2>
-                    <p class="my-4">
-                        
-                       The increasing presence of women as entrepreneurs has led to significant
-                        <br> business and economic growth in the country. Government of India is
-                        <br> providing various incentives to promote female entrepreneurs for a sustainable tommorow.
+            <a class="navbar-brand" href="#">
+                <img src="../../assets/images/logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span>Women Empowerment Portal</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../education/education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../entrepreneurship/entrepreneurship.html">Entrepreneurship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../protection/protection.html">Protection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard/dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav" href="../registration/complaint-form.html">File Complaint</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content" data-aos="fade-up">
+                    <h1 class="hero-title animate-fade-in">
+                        Women Education Awareness<br>& Support Portal
+                    </h1>
+                    <p class="hero-subtitle animate-fade-in">
+                        Empowering women across India through better education, entrepreneurship opportunities,
+                        and protection from social evils. Together, we achieve "Sabka Saath Sabka Vikaas"
                     </p>
-                    <a href="../entrepreneurship/entrepreneurship.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Learn More</a>
+                    <div>
+                        <a href="../education/education.html" class="btn btn-hero btn-hero-primary">Explore Education</a>
+                        <a href="../registration/complaint-form.html" class="btn btn-hero btn-hero-outline">Get Support</a>
+                    </div>
                 </div>
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center flex-md-first">
-                    <img src="../../assets/images/entre.jpg" alt="Safe and reliable" class="mx-auto d-block">
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Functions -->
+    <section class="platform-functions">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Platform Functions</h2>
+                <p class="section-subtitle">Comprehensive support for women's empowerment across three key areas</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="function-card">
+                        <img src="../../assets/images/smart-protect-1.jpg" alt="Women's Education" class="function-icon">
+                        <h3 class="function-title">Women's Education</h3>
+                        <p class="function-desc">Access government schemes, educational resources, and data on women's education initiatives across India</p>
+                        <a href="../education/education.html" class="btn-function">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="function-card">
+                        <img src="../../assets/images/smart-protect-2.jpg" alt="Female Entrepreneurs" class="function-icon">
+                        <h3 class="function-title">Female Entrepreneurs</h3>
+                        <p class="function-desc">Discover business opportunities, government schemes, and financial support for women entrepreneurs</p>
+                        <a href="../entrepreneurship/entrepreneurship.html" class="btn-function">Explore Schemes</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="function-card">
+                        <img src="../../assets/images/smart-protect-3.jpg" alt="Protection" class="function-icon">
+                        <h3 class="function-title">Protection & Safety</h3>
+                        <p class="function-desc">Legal protection, complaint registration, and support against gendered violence and social evils</p>
+                        <a href="../protection/protection.html" class="btn-function">Get Help</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-<!-- feature (skew background) -->
-<div class="jumbotron jumbotron-fluid feature" id="feature-first">
-    <div class="container my-5">
-        <div class="row justify-content-between text-center text-md-left">
-            <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                <h2 class="font-weight-bold">Prevention of Violence against Women</h2>
-                <p class="my-4">The Constitution of India not only grants equality to women but also 
-                    <br>empowers the State to adopt measures of positive discrimination in favour
-                    <br> of women for neutralizing the cumulative socio-economic, educational and 
-                    <br>political disadvantages faced by them</p>
-                <a href="../protection/protection.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Learn More</a>
-            </div>
-            <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
-                <img src="https://asiapacific.unwomen.org/sites/default/files/2025-07/brief-intlcon-evaw-di1.jpg" alt="Take a look inside" class="mx-auto d-block">
+    </section>
+
+    <!-- Education Feature -->
+    <section class="feature-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2 class="feature-title">Government Schemes for Women's Education</h2>
+                    <p class="feature-text">
+                        Women's education is a critical issue in India, and the Indian government has implemented several schemes aimed at improving the literacy rate of women and empowering them to lead a better life. Explore comprehensive information about various educational initiatives and their impact.
+                    </p>
+                    <a href="../education/education.html" class="btn-function">View Education Schemes</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="../../assets/images/edu.png" alt="Education" class="feature-image">
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-    <!-- price table -->
-    <div class="container my-5 py-2" id="price-table">
-        <h2 class="text-center font-weight-bold d-block mb-3">News and Updates</h2>
-        <div class="row">
-            <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center py-4 mt-5">
-                <h4 class="my-4"> PM Modi praises women of India's first village</h4>
-                <img src="../../assets/images/niti.webp" alt="Education" class="mx-auto">
-                <ul class="list-unstyled">
-                    <li>Prime Minister Narendra Modi  </li>
-                    <li>lauded women from the Niti-Mana Valley,</li>
-                    <li> situated near the India-China border </li>
-                    <li>in Uttarakhand's Chamoli district,</li>
-                    <li>for their outstanding efforts in nurturing </li>
-                    <li> Bhojpatra calligraphy as a source of</li>
-                    <li> sustainable livelihood. </li>
-                </ul>
-                
-            </div>
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center py-4 mt-5 rounded" id="price-table__premium">
-                <h4 class="my-4">Robust mechanism to address gender-based misconduct in sports imperative: SC judge Hima Kohli
-
-                     <img src="../../assets/images/hima.jpg" alt="Education" class="mx-auto">
-                <ul class="list-unstyled">
-                    <li>It is imperative to establish </li>
-                 <li> a robust mechanism to address</li>
-                    <li>gender-based misconduct as the </li>
-                    <li>creation of an inclusive environment</li><li> sends the message that women</li>
-                    <li> in sports deserve respect and </li>
-                    <li>protection from discrimination</li>
-                    <li> and harassment, Supreme Court</li>
-                    <li> judge Hima Kohli said.</li>
-                   
-                </ul>
-                
-            </div>
-            <div data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center py-4 mt-5">
-                <h4 class="my-4">An app, women’s empowerment & crypto universe</h4>
-                <img src="../../assets/images/coto.webp" alt="Education" class="mx-auto">
-                <ul class="list-unstyled">
-                    <li>Coto, a social networking platform </li>
-                    <li> exclusively for women, aims </li>
-                    <li>to create safe and secure spaces</li>
-                    <li>for women to discuss pertinent</li>
-                    <li> issues, build communities, and</li>
-                    <li> participate in conversations.</li>
-                
-                </ul>
-                
+    <!-- Entrepreneurship Feature -->
+    <section class="feature-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left">
+                    <h2 class="feature-title">Schemes for Female Entrepreneurs</h2>
+                    <p class="feature-text">
+                        The increasing presence of women as entrepreneurs has led to significant business and economic growth in the country. The Government of India provides various incentives to promote female entrepreneurs for a sustainable tomorrow. Discover loans, grants, and support programs.
+                    </p>
+                    <a href="../entrepreneurship/entrepreneurship.html" class="btn-function">Explore Opportunities</a>
+                </div>
+                <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+                    <img src="../../assets/images/entre.jpg" alt="Entrepreneurship" class="feature-image">
+                </div>
             </div>
         </div>
-    </div>
-    <!-- client -->
-    <div class="jumbotron jumbotron-fluid">
+    </section>
+
+    <!-- Protection Feature -->
+    <section class="feature-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2 class="feature-title">Prevention of Violence Against Women</h2>
+                    <p class="feature-text">
+                        The Constitution of India not only grants equality to women but also empowers the State to adopt measures of positive discrimination in favour of women for neutralizing the cumulative socio-economic, educational and political disadvantages faced by them.
+                    </p>
+                    <a href="../protection/protection.html" class="btn-function">Learn About Rights</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://asiapacific.unwomen.org/sites/default/files/2025-07/brief-intlcon-evaw-di1.jpg" alt="Protection" class="feature-image" onerror="this.src='../../assets/images/smart-protect-3.jpg'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">News & Updates</h2>
+                <p class="section-subtitle">Latest developments in women's empowerment across India</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="news-card">
+                        <img src="../../assets/images/niti.webp" alt="Niti-Mana Valley" class="news-image">
+                        <div class="news-content">
+                            <span class="news-badge">Women Empowerment</span>
+                            <h3 class="news-title">PM Modi Praises Women of India's First Village</h3>
+                            <p class="news-text">
+                                Prime Minister Narendra Modi lauded women from the Niti-Mana Valley, situated near the India-China border in Uttarakhand's Chamoli district, for their outstanding efforts in nurturing Bhojpatra calligraphy as a source of sustainable livelihood.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-card">
+                        <img src="../../assets/images/hima.jpg" alt="Justice Hima Kohli" class="news-image">
+                        <div class="news-content">
+                            <span class="news-badge">Sports & Safety</span>
+                            <h3 class="news-title">Robust Mechanism to Address Gender-Based Misconduct in Sports</h3>
+                            <p class="news-text">
+                                Supreme Court judge Hima Kohli emphasized the imperative to establish a robust mechanism to address gender-based misconduct, ensuring women in sports deserve respect and protection from discrimination and harassment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="news-card">
+                        <img src="../../assets/images/coto.webp" alt="Coto App" class="news-image">
+                        <div class="news-content">
+                            <span class="news-badge">Technology</span>
+                            <h3 class="news-title">An App, Women's Empowerment & Crypto Universe</h3>
+                            <p class="news-text">
+                                Coto, a social networking platform exclusively for women, aims to create safe and secure spaces for women to discuss pertinent issues, build communities, and participate in meaningful conversations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Complaint Section -->
+    <section class="contact-section">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                    <img src="../../assets/images/gov.png" class="mx-auto d-block">
+                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="contact-info">
+                        <h2><i class="fa fa-phone-square"></i> Contact Us</h2>
+                        <div class="contact-item">
+                            <i class="fa fa-envelope"></i>
+                            <span>S.Kumar@iiitb.ac.in</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa fa-phone"></i>
+                            <span>9720391267</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa fa-map-marker"></i>
+                            <span>IIITB, Electronic City, Bengaluru, India</span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="../../assets/images/gov.png" alt="Government of India" style="max-width: 150px; opacity: 0.8;">
+                        </div>
+                    </div>
                 </div>
-                
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="row">
+                        <div class="col-md-6 mb-4" data-aos="fade-up">
+                            <div class="contact-info" style="height: 100%;">
+                                <h3><i class="fa fa-file-text"></i> Register Complaint</h3>
+                                <p class="mt-3">Have a complaint or issue to report? Register your concern through our official complaint portal.</p>
+                                <a href="../registration/complaint-form.html" class="btn btn-form mt-3">
+                                    <i class="fa fa-file-text"></i> File Complaint
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="contact-info" style="height: 100%;">
+                                <h3><i class="fa fa-user-plus"></i> User Registration</h3>
+                                <p class="mt-3">New user? Create your account to access all portal features and track your applications.</p>
+                                <a href="../registration/user-registration.html" class="btn btn-form mt-3">
+                                    <i class="fa fa-user-plus"></i> Register Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- contact / complaint -->
-<div class="jumbotron jumbotron-fluid" id="contact" style="background-image: url(../../assets/images/contact-bk.jpg);">
-    <div class="container my-5">
-        <div class="row justify-content-between">
-            
-            <!-- Contact Info -->
-            <div class="col-md-5 text-white">
-                <h2 class="font-weight-bold">Contact Us</h2>
-                <ul class="list-unstyled">
-                    <li>Email : S.Kumar@iiitb.ac.in</li>
-                    <li>Phone : 9720391267</li>
-                    <li>Address : IIITB, Electronic City, Bengaluru, India</li>
-                </ul>
-            </div>
+    </section>
 
-            <!-- Complaint Form -->
-            <div class="col-md-6 bg-white p-4 rounded">
-                <h3 class="font-weight-bold text-center text-dark mb-3">File a Complaint</h3>
-                
-                <div class="text-center mb-3">
-                    <a href="../registration/complaint-form.html" class="btn btn-primary font-weight-bold mr-2">Register Complaint</a>
-                    <a href="../registration/user-registration.html" class="btn btn-outline-primary font-weight-bold">User Registration</a>
-                </div>
-
-                <form action="../registration/complaint-form.html" method="GET">
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" name="subject" class="form-control" placeholder="Complaint Subject" required>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea name="description" class="form-control" rows="4" placeholder="Describe your complaint" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-block font-weight-bold">
-                        Submit Complaint
-                    </button>
-                </form>
-
-                <p class="text-center text-success mt-3">
-                    * A report will be automatically generated
-                </p>
-            </div>
-
-        </div>
-    </div>
-    <!-- copyright -->
-	<div class="jumbotron jumbotron-fluid" id="copyright">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="row justify-content-between">
-            	
-                <div class="col-md-6 align-self-center text-center text-md-right my-2" id="social-media">
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-medium" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="d-inline-block text-center ml-2">
-                    	<i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Women Empowerment Portal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Medium">
+                            <i class="fa fa-medium"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </footer>
 
-    
-    <!-- AOS -->
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/aos.js"></script>
     <script>
-      AOS.init({
-      });
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-modern');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
-
 </html>

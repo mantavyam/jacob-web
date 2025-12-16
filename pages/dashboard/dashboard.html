@@ -1,92 +1,713 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Women empowerment dashboard - Education statistics, complaint analytics, and progress tracking">
+    <title>Dashboard | Women Empowerment Portal</title>
+    
+    <link rel="icon" href="../../assets/images/favicon.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/css/aos.css">
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <style>
+        :root {
+            --primary-color: oklch(0.205 0 0);
+            --secondary-color: oklch(0.269 0 0);
+            --accent-color: oklch(0.577 0.245 27.325);
+            --dark-color: oklch(0.145 0 0);
+            --light-color: oklch(0.985 0 0);
+            --success-color: oklch(0.646 0.222 41.116);
+            --warning-color: oklch(0.828 0.189 84.429);
+            --info-color: oklch(0.6 0.118 184.704);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+        
+        /* Navigation */
+        .navbar-modern {
+            background: var(--dark-color);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-modern.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar-brand img { height: 40px; width: auto; }
+        
+        .navbar-toggler { border: none; padding: 0.25rem 0.75rem; }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after { width: 80%; }
+        
+        .btn-nav {
+            background: white;
+            color: var(--primary-color) !important;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: var(--accent-color);
+            color: white !important;
+            transform: scale(1.05);
+        }
+        
+        /* Header */
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .dashboard-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dashboard-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        /* Stats Cards */
+        .stats-section {
+            padding: 3rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 5px solid;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+        
+        .stat-card.purple { border-left-color: var(--primary-color); }
+        .stat-card.blue { border-left-color: var(--secondary-color); }
+        .stat-card.red { border-left-color: var(--accent-color); }
+        .stat-card.green { border-left-color: var(--success-color); }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-card.purple .stat-icon {
+            background: rgba(106, 17, 203, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .stat-card.blue .stat-icon {
+            background: rgba(37, 117, 252, 0.1);
+            color: var(--secondary-color);
+        }
+        
+        .stat-card.red .stat-icon {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--accent-color);
+        }
+        
+        .stat-card.green .stat-icon {
+            background: rgba(40, 167, 69, 0.1);
+            color: var(--success-color);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-change {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .stat-change.positive {
+            color: var(--success-color);
+        }
+        
+        .stat-change.negative {
+            color: var(--accent-color);
+        }
+        
+        /* Chart Sections */
+        .chart-section {
+            padding: 2rem 0;
+        }
+        
+        .chart-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .chart-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .chart-subtitle {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Filter Section */
+        .filter-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .filter-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .form-select {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 0.6rem 1rem;
+        }
+        
+        .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+        }
+        
+        /* Quick Actions */
+        .quick-actions {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .action-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-title { font-size: 1.8rem; }
+            .stat-value { font-size: 2rem; }
+        }
+    </style>
+    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['geochart','corechart'],
-      'mapsApiKey': 'AIzaSyAyHsTkkSRCBZjkZ7R2ATvuKdFK3MtoFro'
-  
-    });
-    google.charts.setOnLoadCallback(function() {
-    drawChart();
-    drawRegionsMap();
-  });
-      function drawChart() {
+      google.charts.load('current', {'packages':['corechart', 'geochart']});
+      google.charts.setOnLoadCallback(drawCharts);
+
+      function drawCharts() {
+        drawEducationChart();
+        drawGeoChart();
+      }
+
+      function drawEducationChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Female GER', 'Male GER'],
-          ['2012-13',  20.1,      22.7],
-          ['2013-14',  22.0,      23.9],
-          ['2014-15',  23.2,       25.3],
-          ['2015-16',  23.5,      25.4],
-          ['2016-17',  24.5,      26.0],
-          ['2017-18',  25.4,      26.3],
-          ['2018-19',  26.4,      26.3],
-          ['2019-20',  27.3,      26.9]
-          
+          ['2012-13', 20.1, 22.7],
+          ['2013-14', 22.0, 23.9],
+          ['2014-15', 23.2, 25.3],
+          ['2015-16', 23.5, 25.4],
+          ['2016-17', 24.5, 26.0],
+          ['2017-18', 25.4, 26.3],
+          ['2018-19', 26.4, 26.3],
+          ['2019-20', 27.3, 26.9]
         ]);
 
         var options = {
-          title: 'Gross Enrolment Ratio',
+          title: 'Gross Enrolment Ratio Trends',
           curveType: 'function',
-          legend: { position: 'bottom' }
+          legend: { position: 'bottom' },
+          colors: ['#ff6b6b', '#2575fc'],
+          backgroundColor: 'transparent',
+          chartArea: {width: '85%', height: '70%'},
+          hAxis: { title: 'Academic Year' },
+          vAxis: { title: 'GER (%)' }
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
+        var chart = new google.visualization.LineChart(document.getElementById('education_chart'));
         chart.draw(data, options);
       }
-      function drawRegionsMap() {
-        var data2 = google.visualization.arrayToDataTable([
-        ['State', 'Popularity'],
-                ['Andhra Pradesh', 179],
-                ['Arunachal Pradesh', 7],
-                ['Assam', 85],
-                ['Bihar', 1242],
-                ['Chhattisgarh', 177],
-                ['Goa', 13],
-                ['Gujarat', 232],
-                ['Haryana', 1402],
-                ['Himachal Pradesh', 113],
-                ['Jharkhand', 406],
-                ['Karnataka', 511],
-                ['Kerala', 177],
-                ['Madhya Pradesh', 985],
-                ['Maharashtra', 1431],
-                ['Manipur', 7],
-                ['Meghalaya', 9],
-                ['Mizoram', 2],
-                ['Nagaland', 1],
-                ['Odisha', 156],
-                ['Punjab', 468],
-                ['Rajasthan', 1012],
-                ['Sikkim', 3],
-                ['Tamil Nadu', 511],
-                ['Telangana', 222],
-                ['Tripura', 9],
-                ['Uttar Pradesh', 13058],
-                ['Uttarakhand', 431],
-                ['West Bengal', 507],
-                ['Union Territory', 50]
+
+      function drawGeoChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['State', 'Cases'],
+          ['IN-UP', 39632],
+          ['IN-MH', 38298],
+          ['IN-RJ', 33698],
+          ['IN-WB', 33155],
+          ['IN-BR', 26921],
+          ['IN-AP', 20709],
+          ['IN-MP', 19936],
+          ['IN-DL', 15280],
+          ['IN-TN', 14233],
+          ['IN-HR', 13836],
+          ['IN-GJ', 12825],
+          ['IN-OR', 12560],
+          ['IN-KA', 11230],
+          ['IN-AS', 11041],
+          ['IN-JH', 7016],
+          ['IN-PB', 6614],
+          ['IN-KL', 6393],
+          ['IN-CT', 5893],
+          ['IN-UT', 2965],
+          ['IN-JK', 2687],
+          ['IN-HP', 2356],
+          ['IN-TR', 1627],
+          ['IN-MN', 1135],
+          ['IN-MZ', 638],
+          ['IN-NL', 398],
+          ['IN-AR', 384],
+          ['IN-GA', 341],
+          ['IN-SK', 223]
         ]);
 
         var options = {
-          region: 'IN', // ISO 3166-1 alpha-2 country code
-                resolution: 'provinces',
-                domain:'IN',
-                colorAxis: {
-                    colors: ['cyan', 'blue', 'BLACK']
-                }
-
+          region: 'IN',
+          displayMode: 'regions',
+          resolution: 'provinces',
+          colorAxis: {colors: ['#e3f2fd', '#2575fc', '#6a11cb']},
+          backgroundColor: 'transparent',
+          datalessRegionColor: '#f5f5f5',
+          defaultColor: '#f5f5f5',
         };
 
-        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-        chart.draw(data2, options);
-      };
-
-        
+        var chart = new google.visualization.GeoChart(document.getElementById('geo_chart'));
+        chart.draw(data, options);
+      }
     </script>
-  </head>
-  <body>
-    <div id="curve_chart" style="width: 900px; height: 500px">lINE CHART</div>
-    <div id="regions_div" style="width: 100%; height: 500px;"></div>
-    </body>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-modern navbar-expand-lg">
+        <div class="container align-items-lg-center">
+            <a class="navbar-brand" href="../home/index.html">
+                <img src="../../assets/images/logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span>Women Empowerment Portal</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" style="background: white; padding: 0.5rem;">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../home/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../education/education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../entrepreneurship/entrepreneurship.html">Entrepreneurship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../protection/protection.html">Protection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav" href="../registration/complaint-form.html">File Complaint</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8" data-aos="fade-right">
+                    <h1 class="dashboard-title">Analytics Dashboard</h1>
+                    <p class="dashboard-subtitle">Comprehensive insights into women empowerment initiatives across India</p>
+                </div>
+                <div class="col-md-4 text-md-right" data-aos="fade-left">
+                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Last Updated</div>
+                        <div style="font-size: 1.2rem; font-weight: 700;">January 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-card purple">
+                        <div class="stat-icon">
+                            <i class="fa fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-value">27.3%</div>
+                        <div class="stat-label">Female GER 2019-20</div>
+                        <div class="stat-change positive">
+                            <i class="fa fa-arrow-up"></i> +7.2% from 2012
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card blue">
+                        <div class="stat-icon">
+                            <i class="fa fa-building"></i>
+                        </div>
+                        <div class="stat-value">11.5M</div>
+                        <div class="stat-label">Women-Owned MSMEs</div>
+                        <div class="stat-change positive">
+                            <i class="fa fa-arrow-up"></i> 20% of total
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card red">
+                        <div class="stat-icon">
+                            <i class="fa fa-shield"></i>
+                        </div>
+                        <div class="stat-value">338,954</div>
+                        <div class="stat-label">Total Complaints</div>
+                        <div class="stat-change negative">
+                            <i class="fa fa-info-circle"></i> Needs attention
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card green">
+                        <div class="stat-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <div class="stat-value">28</div>
+                        <div class="stat-label">States Covered</div>
+                        <div class="stat-change positive">
+                            <i class="fa fa-check-circle"></i> 100% coverage
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="chart-section">
+        <div class="container">
+            <div class="filter-section" data-aos="fade-up">
+                <div class="row align-items-end">
+                    <div class="col-md-3 mb-3 mb-md-0">
+                        <label class="filter-label">Category</label>
+                        <select class="form-select">
+                            <option>All Categories</option>
+                            <option>Education</option>
+                            <option>Entrepreneurship</option>
+                            <option>Protection</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3 mb-md-0">
+                        <label class="filter-label">State</label>
+                        <select class="form-select">
+                            <option>All States</option>
+                            <option>Uttar Pradesh</option>
+                            <option>Maharashtra</option>
+                            <option>Rajasthan</option>
+                            <option>West Bengal</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3 mb-md-0">
+                        <label class="filter-label">Year</label>
+                        <select class="form-select">
+                            <option>2019-20</option>
+                            <option>2018-19</option>
+                            <option>2017-18</option>
+                            <option>2016-17</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary" style="width: 100%; padding: 0.6rem; border-radius: 10px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border: none;">
+                            <i class="fa fa-filter"></i> Apply Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="chart-section">
+        <div class="container">
+            <div class="row">
+                <!-- Education Chart -->
+                <div class="col-lg-8 mb-4" data-aos="fade-up">
+                    <div class="chart-card">
+                        <h3 class="chart-title">
+                            <i class="fa fa-line-chart" style="color: var(--primary-color);"></i>
+                            Education Progress Analytics
+                        </h3>
+                        <p class="chart-subtitle">Gross Enrolment Ratio trends over the years</p>
+                        <div id="education_chart" style="width: 100%; height: 400px;"></div>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="quick-actions">
+                        <h3 class="chart-title">
+                            <i class="fa fa-bolt" style="color: var(--accent-color);"></i>
+                            Quick Actions
+                        </h3>
+                        <button class="action-btn" onclick="window.location.href='../education/education.html'">
+                            <i class="fa fa-graduation-cap"></i> Education Schemes
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='../entrepreneurship/entrepreneurship.html'">
+                            <i class="fa fa-briefcase"></i> Business Schemes
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='../protection/protection.html'">
+                            <i class="fa fa-shield"></i> Legal Protection
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='../registration/complaint-form.html'">
+                            <i class="fa fa-file-text"></i> File Complaint
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Geographic Chart -->
+            <div class="row">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="chart-card">
+                        <h3 class="chart-title">
+                            <i class="fa fa-map-marker" style="color: var(--secondary-color);"></i>
+                            Geographic Distribution of Complaints
+                        </h3>
+                        <p class="chart-subtitle">State-wise complaint data visualization</p>
+                        <div id="geo_chart" style="width: 100%; height: 600px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="chart-section" style="padding-bottom: 4rem;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="chart-card">
+                        <div style="text-align: center; padding: 1rem 0;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; color: white;">
+                                <i class="fa fa-trophy"></i>
+                            </div>
+                            <h4 style="color: var(--dark-color); margin-bottom: 1rem;">Top Performing State</h4>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--primary-color);">Kerala</div>
+                            <p style="color: #666; margin-top: 1rem;">Highest female literacy rate and GER</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="chart-card">
+                        <div style="text-align: center; padding: 1rem 0;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--success-color), #20c997); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; color: white;">
+                                <i class="fa fa-rocket"></i>
+                            </div>
+                            <h4 style="color: var(--dark-color); margin-bottom: 1rem;">Fastest Growing</h4>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--success-color);">Bihar</div>
+                            <p style="color: #666; margin-top: 1rem;">Highest improvement in GER</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="chart-card">
+                        <div style="text-align: center; padding: 1rem 0;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent-color), #ee5a6f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; color: white;">
+                                <i class="fa fa-exclamation-triangle"></i>
+                            </div>
+                            <h4 style="color: var(--dark-color); margin-bottom: 1rem;">Needs Focus</h4>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--accent-color);">UP</div>
+                            <p style="color: #666; margin-top: 1rem;">Highest complaint volume</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Women Empowerment Portal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-medium"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-modern');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Responsive charts
+        window.addEventListener('resize', function() {
+            if (typeof google !== 'undefined' && google.charts) {
+                drawCharts();
+            }
+        });
+    </script>
+</body>
 </html>

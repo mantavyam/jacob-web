@@ -1,107 +1,525 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="File a complaint for violence, harassment, or discrimination against women - Safe and confidential">
+    <title>File Complaint | Women Empowerment Portal</title>
     
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href='../../assets/css/forms.css'>
-    <link rel="stylesheet" href="../../assets/css/custom.css">
-    <!-- bootstrap.min.css -->
+    <link rel="icon" href="../../assets/images/favicon.png" sizes="32x32" type="image/png">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <script src='../../assets/js/main.js'></script>
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/css/aos.css">
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <style>
+        :root {
+            --primary-color: oklch(0.205 0 0);
+            --secondary-color: oklch(0.269 0 0);
+            --accent-color: oklch(0.577 0.245 27.325);
+            --dark-color: oklch(0.145 0 0);
+            --light-color: oklch(0.985 0 0);
+            --success-color: oklch(0.646 0.222 41.116);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+        
+        /* Navigation */
+        .navbar-modern {
+            background: var(--dark-color);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-modern.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar-brand img { height: 40px; width: auto; }
+        
+        .navbar-toggler { border: none; padding: 0.25rem 0.75rem; }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after { width: 80%; }
+        
+        .btn-nav {
+            background: white;
+            color: var(--primary-color) !important;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: var(--accent-color);
+            color: white !important;
+            transform: scale(1.05);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 4rem 0 3rem;
+            color: white;
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        /* Form Section */
+        .form-section {
+            padding: 4rem 0;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .required {
+            color: var(--accent-color);
+        }
+        
+        .form-control, .form-select {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .alert-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .alert-box i {
+            color: #ffc107;
+            margin-right: 0.5rem;
+        }
+        
+        .confidential-badge {
+            background: var(--success-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 1.8rem; }
+            .form-container { padding: 2rem 1.5rem; }
+        }
+    </style>
 </head>
 <body>
-    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
-        <div class="container my-5">
-            <div class="row justify-content-between text-center text-md-middle">
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
-                        <br>
-                    <h2 class="font-weight-bold">Register Your Complaint</h2>
-                    <form action="../../backend/forms/complaint-handler.php" method="POST">
-                        <br>   
-                        <br><br>   
-                        <br>User Name :<input type="text" name="username" placeholder="Write your Full name..">
-                        <br>
-                        <br>
-                        <fieldset>
-                            Date of Birth: <input type="date" name="date"/>
-                        </fieldset> 
+    <!-- Navigation -->
+    <nav class="navbar navbar-modern navbar-expand-lg">
+        <div class="container align-items-lg-center">
+            <a class="navbar-brand" href="../home/index.html">
+                <img src="../../assets/images/logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span>Women Empowerment Portal</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" style="background: white; padding: 0.5rem;">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../home/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../education/education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../entrepreneurship/entrepreneurship.html">Entrepreneurship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../protection/protection.html">Protection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard/dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav" href="complaint-form.html">File Complaint</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>File a Complaint</h1>
+                <p>Your voice matters. Report incidents of violence, harassment, or discrimination safely and confidentially.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container" data-aos="fade-up">
+                <div class="text-center">
+                    <span class="confidential-badge">
+                        <i class="fa fa-lock"></i> 100% Confidential
+                    </span>
+                </div>
+                
+                <h2 class="section-title">Complaint Registration Form</h2>
+                <p class="section-subtitle">Please provide accurate information to help us assist you better.</p>
+                
+                <div class="alert-box">
+                    <i class="fa fa-info-circle"></i>
+                    <strong>Important:</strong> All information provided will be kept strictly confidential. Your complaint will be investigated by authorized personnel only.
+                </div>
+
+                <form action="../../backend/forms/output.php" method="POST">
+                    <!-- Personal Information -->
+                    <div class="mb-4">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                            <i class="fa fa-user"></i> Personal Information
+                        </h4>
                         
-                        <br>
-                        Address: <textarea name="address" placeholder="Enter your Address"></textarea>
-                        <br>
-                        <br>State:<select name="state" >
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="Madhya Pradesh">Madhya Pradesh</option>
-                            <option value="Punjab">Punjab</option><option value="Assom">Assom</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Rajasthan">Rajasthan</option><option value="Bihar">Bihar</option>
-                            <option value="Jharkhand">JKH</option>
-                            <option value="Odisha">Odisha</option><option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Kerela">Kerela</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option><option value="Andra Pradesh">Andra Pradesh</option>
-                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Uttra Khand">UK</option>
-                            <option value="Himanchal Pradesh">Himanchal Pradesh</option><option value="Gujarat">Gujarat</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Nagaland">Nagaland</option><option value="Manipur">Manipur</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Tripura">Tripura</option><option value="Goa">Goa</option>
-                            <option value="Karanataka">Karanataka</option>
-                            <option value="Maharastra">Maharastra</option><option value="Telangana">Telangana</option>
-                            <option value="West Bengal">West Bengal</option>
-                            
-                        </select>
-                        <br>
-                        <br>District :<input type="text" name="district" placeholder="Enter District">
-                        <br>
-                        <br>Pin Code :<input type="int" name="pin" placeholder="Enter Pin code">
-                        <br>
-                        <br> E Mail :<input type="text" name="email" placeholder="Write your email..">
-                       
-                        <br>
-                        <br> Mobile Number :<input type="int" name="mob" placeholder="Enter mobile number">
-                        <br>
-                        <br>  Gender :<select name="gender" >
-                            <option value="male">male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other" >Other</option>
-                        </select>
-                        <br>
-                        <br> Religion :<select name="religion" >
-                            <option value="Hinduism">Hinduism</option>
-                            <option value="Jainism">Jainism</option>
-                            <option value="Sikhism" >Sikhism</option>
-                            <option value="Islamism" >Islamism</option>
-                            <option value="Buddhism" >Buddhism</option>
-                            <option value="Other" >Other</option>
-                            
-                        </select>
-                        <br>
-                      
-                        <br> Caste :<input type="text" name="caste" placeholder="Enter your caste or type NIL">
-                        <br>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Full Name <span class="required">*</span></label>
+                                <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Email Address <span class="required">*</span></label>
+                                <input type="email" class="form-control" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                        </div>
                         
-                        <br><br>
-                       Complaint: <textarea name="complaint" placeholder="Describe your complaint"></textarea>
-                        <br> <br> <br>
-                        Set Password :<input type =password name="pass" placeholder="Set Password"> 
-                        <br>
-                        <br> <br>
-                        <br> 
-                       
-                        <button class="ptn ptn primary" type="Submit" name="submit" class="ptn ptn primary">Submit</button>
-                        <a href="prot.html" class="btn my-4 font-weight-bold atlas-cta cta-blue">Go Back</a>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Mobile Number <span class="required">*</span></label>
+                                <input type="tel" class="form-control" name="mobile" placeholder="+91 XXXXXXXXXX" pattern="[0-9+\s-]+" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Age <span class="required">*</span></label>
+                                <input type="number" class="form-control" name="age" placeholder="Enter your age" min="1" max="120" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location Information -->
+                    <div class="mb-4">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                            <i class="fa fa-map-marker"></i> Location Information
+                        </h4>
                         
-                           </form> 
-                    
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">State <span class="required">*</span></label>
+                                <select class="form-control form-select" name="state" id="stateSelect" required>
+                                    <option value="">Select State</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                    <option value="Delhi">Delhi</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">District <span class="required">*</span></label>
+                                <input type="text" class="form-control" name="district" placeholder="Enter your district" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Full Address</label>
+                            <textarea class="form-control" name="address" placeholder="Enter your complete address (Optional)"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Complaint Details -->
+                    <div class="mb-4">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                            <i class="fa fa-file-text"></i> Complaint Details
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Nature of Complaint <span class="required">*</span></label>
+                            <select class="form-control form-select" name="complaint_type" required>
+                                <option value="">Select complaint type</option>
+                                <option value="Domestic Violence">Domestic Violence</option>
+                                <option value="Sexual Harassment">Sexual Harassment</option>
+                                <option value="Workplace Discrimination">Workplace Discrimination</option>
+                                <option value="Dowry Harassment">Dowry Harassment</option>
+                                <option value="Assault">Physical Assault</option>
+                                <option value="Stalking">Stalking</option>
+                                <option value="Cyber Crime">Cyber Crime</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Incident Date</label>
+                            <input type="date" class="form-control" name="incident_date">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Describe Your Complaint <span class="required">*</span></label>
+                            <textarea class="form-control" name="complaint_description" placeholder="Please provide detailed description of the incident. Include when, where, and what happened..." style="min-height: 200px;" required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn-submit">
+                            <i class="fa fa-paper-plane"></i> Submit Complaint
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Emergency Help -->
+                <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--accent-color), #ee5a6f); border-radius: 15px; color: white; text-align: center;">
+                    <h4 style="margin-bottom: 1rem;">Need Immediate Help?</h4>
+                    <p style="margin-bottom: 1rem; opacity: 0.95;">If you're in danger, please call emergency services immediately</p>
+                    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                        <div style="font-size: 1.3rem; font-weight: 700;">
+                            <i class="fa fa-phone"></i> 100 (Police)
+                        </div>
+                        <div style="font-size: 1.3rem; font-weight: 700;">
+                            <i class="fa fa-phone"></i> 1091 (Women Helpline)
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-   
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Women Empowerment Portal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-medium"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-modern');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Form validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const mobile = document.querySelector('[name="mobile"]').value;
+            const email = document.querySelector('[name="email"]').value;
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                e.preventDefault();
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Mobile validation (basic)
+            const mobileRegex = /^[0-9+\s-]{10,15}$/;
+            if (!mobileRegex.test(mobile)) {
+                e.preventDefault();
+                alert('Please enter a valid mobile number');
+                return;
+            }
+        });
+    </script>
 </body>
 </html>
