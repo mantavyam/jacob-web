@@ -87,7 +87,7 @@ async function sendEmailConfirmation(complaintData) {
                 <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
                     <h3 style="margin-top: 0;">Complaint Details:</h3>
                     <p><strong>Submission Date:</strong> ${new Date().toLocaleString('en-IN')}</p>
-                    <p><strong>Reference ID:</strong> Will be provided shortly</p>
+                    <p><strong>Reference ID:</strong> #${complaintData.complaintId}</p>
                     <p><strong>Status:</strong> Pending Review</p>
                 </div>
                 
@@ -169,13 +169,15 @@ app.post('/api/complaints', validateComplaint, async (req, res) => {
                 });
             }
 
+            const complaintId = this.lastID;
+
             // Send email confirmation
-            const emailResult = await sendEmailConfirmation({ username, email });
+            const emailResult = await sendEmailConfirmation({ username, email, complaintId });
 
             res.status(201).json({
                 success: true,
                 message: 'Complaint submitted successfully',
-                complaintId: this.lastID,
+                complaintId: complaintId,
                 emailSent: emailResult.success
             });
         });
@@ -338,6 +340,69 @@ app.get('/api/complaints/stats', (req, res) => {
         res.status(500).json({
             success: false,
             message: 'Failed to fetch statistics'
+        });
+    }
+});
+
+// Check complaint status (public endpoint)
+app.get('/api/complaints/check', (req, res) => {
+    const { refId, email, mobile } = req.query;
+
+    if (!refId && !email && !mobile) {
+        return res.status(400).json({
+            success: false,
+            message: 'Please provide at least one search criteria'
+        });
+    }
+
+    try {
+        let query = 'SELECT id, username, email, mobile, state, complaint, status, submission_date FROM complaints WHERE ';
+        const params = [];
+        const conditions = [];
+
+        if (refId) {
+            conditions.push('id = ?');
+            params.push(refId);
+        }
+        if (email) {
+            conditions.push('email = ?');
+            params.push(email);
+        }
+        if (mobile) {
+            conditions.push('mobile = ?');
+            params.push(mobile);
+        }
+
+        query += conditions.join(' OR ');
+        query += ' ORDER BY submission_date DESC LIMIT 10';
+
+        db.all(query, params, (err, complaints) => {
+            if (err) {
+                console.error('Database error:', err);
+                return res.status(500).json({
+                    success: false,
+                    message: 'Failed to check complaint status'
+                });
+            }
+
+            if (!complaints || complaints.length === 0) {
+                return res.status(404).json({
+                    success: false,
+                    message: 'No complaints found with the provided information'
+                });
+            }
+
+            res.json({
+                success: true,
+                complaints: complaints
+            });
+        });
+
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to check complaint status'
         });
     }
 });

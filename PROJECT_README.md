@@ -2,33 +2,40 @@
 
 A comprehensive web platform for women's empowerment with complaint submission and management system.
 
-## 🌟 Features
+## Features
 
 ### Frontend
-- ✅ Responsive website with multiple pages (Home, About, Services, Programs, Contact)
-- ✅ Comprehensive complaint/contact form with 14 fields
-- ✅ AJAX form submission with real-time validation
-- ✅ Success/error feedback to users
-- ✅ Email confirmation for complaint submissions
-- ✅ Mobile-friendly design with Bootstrap 5
+- Responsive website with multiple pages (Home, About, Services, Programs, Contact)
+- Comprehensive complaint/contact form with 14 fields
+- AJAX form submission with real-time validation
+- Success/error feedback to users
+- Email confirmation for complaint submissions
+- Mobile-friendly design with Bootstrap 5
+- "Track Your Complaint Status" section that allows users to check their complaint status by entering:- Reference ID, OR Email address, OR Mobile number
+
+**Features:**
+- Search by any one of the three criteria
+- Displays complaint details including status, submission date, and location
+- Color-coded status badges (Pending, In Progress, Resolved, Closed)
+- Shows up to 10 matching complaints
 
 ### Backend
-- ✅ RESTful API with Express.js
-- ✅ SQLite database for local data storage
-- ✅ Email notifications via Nodemailer
-- ✅ Input validation and sanitization
-- ✅ CORS support for cross-origin requests
-- ✅ Comprehensive error handling
+- RESTful API with Express.js
+- SQLite database for local data storage
+- Email notifications via Nodemailer
+- Input validation and sanitization
+- CORS support for cross-origin requests
+- Comprehensive error handling
 
 ### Admin Dashboard
-- ✅ Password-protected admin panel
-- ✅ View all complaints with filtering (status, state)
-- ✅ Real-time statistics and analytics
-- ✅ Update complaint status (Pending, In Progress, Resolved, Closed)
-- ✅ Pagination for large datasets
-- ✅ Detailed complaint view modal
+- Password-protected admin panel
+- View all complaints with filtering (status, state)
+- Real-time statistics and analytics
+- Update complaint status (Pending, In Progress, Resolved, Closed)
+- Pagination for large datasets
+- Detailed complaint view modal
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 jacob-web/
@@ -72,7 +79,7 @@ jacob-web/
 └── data/                       # Data files
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js (v14 or higher)
@@ -129,9 +136,9 @@ Then open: `http://localhost:5500`
 
 **Option 3: Open directly**
 - Simply open `index.html` in your browser
-- Note: Some features may require a local server
+- Note: Complaint CRUD and Admin Dashboard functionality require a local server
 
-## 📧 Email Configuration
+## Email Configuration
 
 ### Gmail Setup (Recommended)
 
@@ -148,7 +155,7 @@ EMAIL_PASSWORD=your-16-digit-app-password
 EMAIL_FROM=WomenRise Support <your-email@gmail.com>
 ```
 
-## 🔐 Admin Dashboard
+## Admin Dashboard
 
 1. Start the backend server (see above)
 2. Open: `http://localhost:3000/complaints-dashboard.html`
@@ -157,9 +164,9 @@ EMAIL_FROM=WomenRise Support <your-email@gmail.com>
 
 ### Default Credentials
 - Password: Set in `.env` file (`ADMIN_PASSWORD`)
-- **⚠️ Change this before deployment!**
+- **Change this before deployment!**
 
-## 📝 Usage
+## Usage
 
 ### Submitting a Complaint
 
@@ -190,6 +197,33 @@ POST /api/complaints
 - Returns: Complaint ID and confirmation
 ```
 
+```
+GET /api/complaints/check
+```
+
+**Query Parameters (at least one required):**
+- `refId` - Complaint reference ID
+- `email` - Email address
+- `mobile` - Mobile number
+
+**Response:**
+```json
+{
+  "success": true,
+  "complaints": [
+    {
+      "id": 1,
+      "username": "John Doe",
+      "email": "john@example.com",
+      "mobile": "1234567890",
+      "state": "Maharashtra",
+      "complaint": "...",
+      "status": "Pending",
+      "submission_date": "2025-12-17T06:00:00.000Z"
+    }
+  ]
+}
+
 ### Admin Endpoints (Require Password)
 
 ```
@@ -208,16 +242,16 @@ PATCH /api/complaints/:id/status
 - Body: { status: "Pending|In Progress|Resolved|Closed" }
 ```
 
-## 🔒 Security Features
+## Security Features
 
-- ✅ Password-protected admin dashboard
-- ✅ Input validation and sanitization
-- ✅ SQL injection prevention
-- ✅ CORS protection
-- ✅ Environment variable configuration
-- ✅ Database file excluded from version control
+- Password-protected admin dashboard
+- Input validation and sanitization
+- SQL injection prevention
+- CORS protection
+- Environment variable configuration
+- Database file excluded from version control
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Backend won't start
 - Check if port 3000 is available
@@ -238,7 +272,7 @@ PATCH /api/complaints/:id/status
 - Check browser console for errors
 - Verify API_BASE_URL in `form-handler.js`
 
-## 📊 Database Schema
+## Database Schema
 
 ### complaints table
 - `id` - Primary key
@@ -258,34 +292,11 @@ PATCH /api/complaints/:id/status
 - `submission_date` - Timestamp
 - `created_at` - Creation timestamp
 
-## 🎯 Development Roadmap
-
-### Completed ✅
-- [x] Frontend website with multiple pages
-- [x] Contact form with validation
-- [x] Backend API with Express.js
-- [x] SQLite database integration
-- [x] Email notifications
-- [x] Admin dashboard
-- [x] Status management
-
-### Future Enhancements 🚀
-- [ ] File upload for evidence
-- [ ] SMS notifications
-- [ ] Multi-language support
-- [ ] Advanced search and filtering
-- [ ] Export complaints to PDF/Excel
-- [ ] Email templates customization
-- [ ] Role-based access control
-- [ ] Complaint assignment system
-- [ ] Anonymous complaint submission
-- [ ] Integration with government portals
-
-## 📄 License
+## License
 
 This project is part of the WomenRise initiative for women empowerment.
 
-## 👥 Support
+## Support
 
 For emergency assistance: **14490** (24/7 Helpline)
 

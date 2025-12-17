@@ -69,6 +69,9 @@
                     </div>
                     <a href="contact.html" class="nav-item nav-link active">Contact</a>
                 </div>
+                <a class="btn btn-sm btn-outline-secondary me-2" href="complaints-dashboard.html" title="Admin Dashboard">
+                    <i class="fas fa-user-shield"></i>
+                </a>
                 <a class="btn btn-sm btn-primary" href="contact.html">File Complaint</a>
             </div>
         </nav>
@@ -235,6 +238,48 @@
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Check Complaint Status -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <div class="card border-primary shadow-sm wow fadeIn" data-wow-delay="0.4s">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h4 class="mb-0"><i class="fas fa-search me-2"></i>Track Your Complaint Status</h4>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="text-center mb-4">Enter any one of the following details to check your complaint status</p>
+                            <form id="statusCheckForm">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="number" class="form-control" id="statusRefId" name="refId" placeholder="Reference ID">
+                                            <label for="statusRefId">Reference ID</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="statusEmail" name="email" placeholder="Email">
+                                            <label for="statusEmail">Email Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="tel" class="form-control" id="statusMobile" name="mobile" placeholder="Mobile">
+                                            <label for="statusMobile">Mobile Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary w-100 py-2">
+                                            <i class="fas fa-search me-2"></i>Check Status
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="statusResult" class="mt-4"></div>
+                        </div>
                     </div>
                 </div>
             </div>

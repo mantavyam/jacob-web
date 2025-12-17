@@ -18,6 +18,12 @@
         
         // Add real-time validation
         addFieldValidation(complaintForm);
+
+        // Initialize status check form
+        const statusCheckForm = document.getElementById('statusCheckForm');
+        if (statusCheckForm) {
+            statusCheckForm.addEventListener('submit', handleStatusCheck);
+        }
     });
 
     async function handleFormSubmit(event) {
@@ -227,6 +233,73 @@
     function resetSubmitButton(button, originalText) {
         button.disabled = false;
         button.innerHTML = originalText;
+    }
+
+    async function handleStatusCheck(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const refId = document.getElementById('statusRefId').value.trim();
+        const email = document.getElementById('statusEmail').value.trim();
+        const mobile = document.getElementById('statusMobile').value.trim();
+        
+        const resultDiv = document.getElementById('statusResult');
+        
+        if (!refId && !email && !mobile) {
+            resultDiv.innerHTML = '<div class="alert alert-warning">Please enter at least one search criteria</div>';
+            return;
+        }
+        
+        resultDiv.innerHTML = '<div class="text-center"><div class="spinner-border text-primary"></div><p class="mt-2">Searching...</p></div>';
+        
+        try {
+            const params = new URLSearchParams();
+            if (refId) params.append('refId', refId);
+            if (email) params.append('email', email);
+            if (mobile) params.append('mobile', mobile);
+            
+            const response = await fetch(`${API_BASE_URL}/complaints/check?${params}`);
+            const result = await response.json();
+            
+            if (response.ok && result.success) {
+                let html = '<div class="alert alert-success mb-3">Found ' + result.complaints.length + ' complaint(s)</div>';
+                
+                result.complaints.forEach(complaint => {
+                    const statusClass = {
+                        'Pending': 'warning',
+                        'In Progress': 'info',
+                        'Resolved': 'success',
+                        'Closed': 'secondary'
+                    }[complaint.status] || 'secondary';
+                    
+                    html += `
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5 class="card-title">Complaint #${complaint.id}</h5>
+                                        <p class="mb-1"><strong>Name:</strong> ${complaint.username}</p>
+                                        <p class="mb-1"><strong>Submitted:</strong> ${new Date(complaint.submission_date).toLocaleString('en-IN')}</p>
+                                        <p class="mb-1"><strong>Location:</strong> ${complaint.state}</p>
+                                    </div>
+                                    <div class="col-md-6 text-md-end">
+                                        <span class="badge bg-${statusClass} fs-6">${complaint.status}</span>
+                                        <p class="mt-2 small text-muted">${complaint.complaint.substring(0, 100)}...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                resultDiv.innerHTML = html;
+            } else {
+                resultDiv.innerHTML = `<div class="alert alert-info">${result.message || 'No complaints found'}</div>`;
+            }
+        } catch (error) {
+            console.error('Status check error:', error);
+            resultDiv.innerHTML = '<div class="alert alert-danger">Failed to check status. Please try again.</div>';
+        }
     }
 
 })();

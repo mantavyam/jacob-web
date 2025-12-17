@@ -10,12 +10,42 @@
 
     // Initialize dashboard
     document.addEventListener('DOMContentLoaded', function() {
-        initializeLoginForm();
+        // Check if user is already logged in
+        const savedPassword = localStorage.getItem('adminAuth');
+        if (savedPassword) {
+            adminPassword = savedPassword;
+            testAuthAndShowDashboard();
+        } else {
+            initializeLoginForm();
+        }
     });
 
     function initializeLoginForm() {
         const loginForm = document.getElementById('loginForm');
         loginForm.addEventListener('submit', handleLogin);
+    }
+
+    async function testAuthAndShowDashboard() {
+        try {
+            const response = await fetch(`${API_BASE_URL}/complaints/stats`, {
+                headers: {
+                    'X-Admin-Password': adminPassword
+                }
+            });
+            
+            if (response.ok) {
+                showDashboard();
+                loadDashboardData();
+            } else {
+                // Invalid saved password, clear it
+                localStorage.removeItem('adminAuth');
+                initializeLoginForm();
+            }
+        } catch (error) {
+            localStorage.removeItem('adminAuth');
+            initializeLoginForm();
+        }localStorage.setItem('adminAuth', password);
+                
     }
 
     async function handleLogin(event) {
@@ -66,6 +96,7 @@
     function handleLogout() {
         adminPassword = '';
         currentOffset = 0;
+        localStorage.removeItem('adminAuth');
         allComplaints = [];
         document.getElementById('loginScreen').style.display = 'flex';
         document.getElementById('dashboardScreen').style.display = 'none';
