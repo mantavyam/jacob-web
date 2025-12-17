@@ -471,11 +471,11 @@ app.use('/api/*', (req, res) => {
 // Start server
 app.listen(PORT, () => {
     console.log(`\n${'='.repeat(50)}`);
-    console.log(`🚀 WomenRise Backend Server Running`);
+    console.log(`WomenRise Backend Server Running`);
     console.log(`${'='.repeat(50)}`);
-    console.log(`📍 Server: http://localhost:${PORT}`);
-    console.log(`📊 Health: http://localhost:${PORT}/api/health`);
-    console.log(`📝 API Base: http://localhost:${PORT}/api`);
+    console.log(`Server: http://localhost:${PORT}`);
+    console.log(`Health: http://localhost:${PORT}/api/health`);
+    console.log(`API Base: http://localhost:${PORT}/api`);
     console.log(`${'='.repeat(50)}\n`);
 });
 

@@ -14,7 +14,15 @@ cd backend
 npm install
 ```
 
-### 2. Configure Environment
+### 2. Gmail App Password Setup (for email notifications)
+
+1. Go to [Google Account](https://myaccount.google.com/)
+2. Enable 2-Factor Authentication
+3. Go to [App Passwords](https://myaccount.google.com/apppasswords)
+4. Generate a new app password for "Mail"
+5. Copy the 16-digit password to `.env` file
+
+### 3. Configure Environment
 
 Copy the example environment file and update with your settings:
 
@@ -37,14 +45,6 @@ EMAIL_USER=your-email@gmail.com
 EMAIL_PASSWORD=your-16-digit-app-password
 EMAIL_FROM=WomenRise Support <your-email@gmail.com>
 ```
-
-### 3. Gmail App Password Setup (for email notifications)
-
-1. Go to [Google Account](https://myaccount.google.com/)
-2. Enable 2-Factor Authentication
-3. Go to [App Passwords](https://myaccount.google.com/apppasswords)
-4. Generate a new app password for "Mail"
-5. Copy the 16-digit password to `.env` file
 
 ### 4. Initialize Database
 
@@ -195,16 +195,16 @@ backend/
 
 ## 🎯 Features
 
-✅ RESTful API with Express.js  
-✅ SQLite database for local storage  
-✅ Email confirmations via Nodemailer  
-✅ Input validation and sanitization  
-✅ Admin authentication  
-✅ CORS support  
-✅ Error handling  
-✅ Statistics dashboard  
-✅ Status management  
-✅ Filtering and pagination  
+- RESTful API with Express.js  
+- SQLite database for local storage  
+- Email confirmations via Nodemailer  
+- Input validation and sanitization  
+- Admin authentication  
+- CORS support  
+- Error handling  
+- Statistics dashboard  
+- Status management  
+- Filtering and pagination  
 
 ## 📝 License
 
